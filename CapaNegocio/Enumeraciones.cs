@@ -21,7 +21,8 @@ namespace CapaNegocio
             Asesino = 3,
             Clerigo = 4,
             Mago = 5,
-            Campesino = 6
+            Campesino = 6,
+            Ladron = 7
         }
 
         public enum Musica
