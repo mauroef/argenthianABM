@@ -48,7 +48,7 @@ namespace CapaPresentacion
 
         private void BtGuardar_Click(object sender, EventArgs e)
         {
-            objeto.nombre = "nuevo";
+            objeto.Nombre = "nuevo";
 
             if (!objeto.GuadarDatos(objeto))
             {
@@ -58,7 +58,6 @@ namespace CapaPresentacion
 
         private void DataGridViewObjeto_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if click is on new row or header row
             if (e.RowIndex == DataGridViewObjeto.NewRowIndex || e.RowIndex < 0)
             {
                 return;
@@ -66,7 +65,12 @@ namespace CapaPresentacion
 
             if (e.ColumnIndex == DataGridViewObjeto.Columns["btEliminar"].Index)
             {
-                int indice = e.RowIndex;
+                short id = (short)DataGridViewObjeto.Rows[e.RowIndex].Cells["id"].Value;
+
+                if (id > 0)
+                {
+                    objeto.EliminarPorId(id);
+                }
             }
         }
     }

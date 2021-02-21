@@ -11,16 +11,16 @@ namespace CapaNegocio.Modelos
     {
         #region Validacion
 
-        public short id { get; set; }
-        public string nombre { get; set; }
-        public decimal precio { get; set; }
-        public short tipo { get; set; }
-        public int idSonido { get; set; }
-        public int idImagen { get; set; }
-        public int idModelo3d { get; set; }
-        public short idHechizo { get; set; }
-        EstadisticasModel estadisticas { get; set; }
-        EquipoModel equipo { get; set; }
+        public short Id { get; set; }
+        public string Nombre { get; set; }
+        public decimal Precio { get; set; }
+        public short Tipo { get; set; }
+        public int IdSonido { get; set; }
+        public int IdImagen { get; set; }
+        public int IdModelo3d { get; set; }
+        public short IdHechizo { get; set; }
+        EstadisticasModel Estadisticas { get; set; }
+        EquipoModel Equipo { get; set; }
 
         #endregion
 
@@ -63,14 +63,28 @@ namespace CapaNegocio.Modelos
         {
             Objeto o = new Objeto();
 
-            o.nombre = objetoModel.nombre;
+            o.nombre = objetoModel.Nombre;
 
             return o;
         }
 
         public bool ValidarDatos(ObjetoModel objeto)
         {
-            return !String.IsNullOrEmpty(objeto.nombre);
+            return !String.IsNullOrEmpty(objeto.Nombre);
+        }
+
+        public bool EliminarPorId(short id)
+        {
+            try
+            {
+                objetoRepository.Eliminar(id);
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

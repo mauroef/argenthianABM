@@ -40,7 +40,7 @@ namespace CapaPresentacion
             this.DataGridViewObjeto.Location = new System.Drawing.Point(12, 12);
             this.DataGridViewObjeto.Name = "DataGridViewObjeto";
             this.DataGridViewObjeto.RowTemplate.Height = 25;
-            this.DataGridViewObjeto.Size = new System.Drawing.Size(641, 274);
+            this.DataGridViewObjeto.Size = new System.Drawing.Size(810, 274);
             this.DataGridViewObjeto.TabIndex = 0;
             this.DataGridViewObjeto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewObjeto_CellClick);
             // 

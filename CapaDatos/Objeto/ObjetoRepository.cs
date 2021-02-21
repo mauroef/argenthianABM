@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace CapaDatos.Objeto
@@ -29,14 +30,11 @@ namespace CapaDatos.Objeto
             GuardarDatos(JsonConvert.SerializeObject(lista, Formatting.Indented));
         }
 
-        public void Editar(Objeto objeto)
+        public void Eliminar(short id)
         {
-            throw new NotImplementedException();
-        }
+            List<Objeto> lista = JsonConvert.DeserializeObject<List<Objeto>>(LeerDatos());
 
-        public void EditarObjeto(Objeto objeto)
-        {
-            throw new NotImplementedException();
+            GuardarDatos(JsonConvert.SerializeObject(lista.Where(o => o.id != id).ToList(), Formatting.Indented));
         }
     }
 }

@@ -9,6 +9,5 @@ namespace CapaDatos.Contratos
     {
         IEnumerable<Objeto.Objeto> ObtenerTodos();
         void Guardar(Objeto.Objeto objeto);
-        void Editar(Objeto.Objeto objeto);
     }
 }
