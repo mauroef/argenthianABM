@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using CapaDatos.Objeto;
@@ -10,6 +9,8 @@ namespace CapaNegocio.Modelos
 {
     public class ObjetoModel
     {
+        #region Validacion
+
         public short id { get; set; }
         public string nombre { get; set; }
         public decimal precio { get; set; }
@@ -21,6 +22,8 @@ namespace CapaNegocio.Modelos
         EstadisticasModel estadisticas { get; set; }
         EquipoModel equipo { get; set; }
 
+        #endregion
+
         private ObjetoRepository objetoRepository;
 
         public ObjetoModel()
@@ -28,7 +31,7 @@ namespace CapaNegocio.Modelos
             objetoRepository = new ObjetoRepository();
         }
 
-        public DataTable MostrarDatos()
+        public DataTable ObtenerDatos()
         {
             DataTable tablaObjeto = new DataTable("objetos");
 
@@ -38,6 +41,36 @@ namespace CapaNegocio.Modelos
             }
 
             return tablaObjeto;
+        }
+
+        public bool GuadarDatos(ObjetoModel objetoModel)
+        {
+            if (ValidarDatos(objetoModel))
+            {
+                Objeto objeto = MapearObjeto(objetoModel);
+                
+                objetoRepository.Guardar(objeto);
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private Objeto MapearObjeto(ObjetoModel objetoModel)
+        {
+            Objeto o = new Objeto();
+
+            o.nombre = objetoModel.nombre;
+
+            return o;
+        }
+
+        public bool ValidarDatos(ObjetoModel objeto)
+        {
+            return !String.IsNullOrEmpty(objeto.nombre);
         }
     }
 }

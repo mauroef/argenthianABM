@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -23,6 +22,11 @@ namespace CapaDatos
 
                 return json;
             }
+        }
+
+        public void GuardarDatos(string nuevoJson)
+        {
+            File.WriteAllText(_nombreRuta, nuevoJson);
         }
     }
 }

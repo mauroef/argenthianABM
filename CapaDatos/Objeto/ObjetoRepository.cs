@@ -20,12 +20,16 @@ namespace CapaDatos.Objeto
             return lista;
         }
 
-        public void Editar(Objeto objeto)
+        public void Guardar(Objeto objeto)
         {
-            throw new NotImplementedException();
+            List<Objeto> lista = JsonConvert.DeserializeObject<List<Objeto>>(LeerDatos());
+
+            lista.Add(objeto);
+
+            GuardarDatos(JsonConvert.SerializeObject(lista, Formatting.Indented));
         }
 
-        public void Guardar(Objeto objeto)
+        public void Editar(Objeto objeto)
         {
             throw new NotImplementedException();
         }

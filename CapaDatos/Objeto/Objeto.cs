@@ -32,7 +32,7 @@ namespace CapaDatos.Objeto
         public short idHechizo { get; set; }
 
         public Equipo equipo { get; set; }
-        public Estadisticas estadisticas { get; set; }       
+        public Estadisticas estadisticas { get; set; }
     }
 
     public class Estadisticas
