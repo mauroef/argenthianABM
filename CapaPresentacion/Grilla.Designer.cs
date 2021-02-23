@@ -40,13 +40,13 @@ namespace CapaPresentacion
             this.DataGridViewObjeto.Location = new System.Drawing.Point(12, 12);
             this.DataGridViewObjeto.Name = "DataGridViewObjeto";
             this.DataGridViewObjeto.RowTemplate.Height = 25;
-            this.DataGridViewObjeto.Size = new System.Drawing.Size(969, 274);
+            this.DataGridViewObjeto.Size = new System.Drawing.Size(969, 403);
             this.DataGridViewObjeto.TabIndex = 0;
             this.DataGridViewObjeto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewObjeto_CellClick);
             // 
             // BtNuevo
             // 
-            this.BtNuevo.Location = new System.Drawing.Point(906, 292);
+            this.BtNuevo.Location = new System.Drawing.Point(906, 421);
             this.BtNuevo.Name = "BtNuevo";
             this.BtNuevo.Size = new System.Drawing.Size(75, 23);
             this.BtNuevo.TabIndex = 2;

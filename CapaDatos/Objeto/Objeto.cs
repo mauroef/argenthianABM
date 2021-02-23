@@ -6,33 +6,32 @@ using Newtonsoft.Json;
 namespace CapaDatos.Objeto
 {
     public class Objeto
-    {       
+    {
         [JsonProperty("id")]
         public short id { get; set; }
-
         [JsonProperty("nombre")]
         public string nombre { get; set; }
-
         [JsonProperty("precio")]
         public decimal precio { get; set; }
-
         [JsonProperty("tipo")]
         public short tipo { get; set; }
-
         [JsonProperty("idSonido")]
         public int idSonido { get; set; }
-
         [JsonProperty("idImagen")]
         public int idImagen { get; set; }
-
         [JsonProperty("idModelo3d")]
         public int idModelo3d { get; set; }
-
         [JsonProperty("idHechizo")]
         public short idHechizo { get; set; }
-
+        public List<short> clasesNoPermitidas { get; set; }
         public Equipo equipo { get; set; }
         public Estadisticas estadisticas { get; set; }
+
+        public Objeto()
+        {
+            equipo = new Equipo();
+            estadisticas = new Estadisticas();
+        }
     }
 
     public class Estadisticas

@@ -67,18 +67,18 @@ namespace CapaNegocio
 
         public enum Sonido
         {
-            sinSonido = 0,
-            fallar = 1,
-            sangre = 2,
-            golpe = 3,
-            escudo = 4,
-            muerte = 5,
-            equipar = 6,
-            clickInventario = 7,
-            clickMouse = 8,
-            subirnivel = 9,
-            golpearCriatura = 10,
-            espadazoNormal = 19,
+            SinSonido = 0,
+            Fallar = 1,
+            Sangre = 2,
+            Golpe = 3,
+            Escudo = 4,
+            Muerte = 5,
+            Equipar = 6,
+            ClickInventario = 7,
+            ClickMouse = 8,
+            SubirNivel = 9,
+            GolpearCriatura = 10,
+            EspadazoNormal = 19,
         }
 
         public enum SonidoInventario

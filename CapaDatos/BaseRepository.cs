@@ -24,7 +24,7 @@ namespace CapaDatos
             }
         }
 
-        public void GuardarDatos(string nuevoJson)
+        public void EscribirDatos(string nuevoJson)
         {
             File.WriteAllText(_nombreRuta, nuevoJson);
         }

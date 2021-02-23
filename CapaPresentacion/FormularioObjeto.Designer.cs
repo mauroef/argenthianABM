@@ -43,7 +43,6 @@ namespace CapaPresentacion
             this.LbModelo = new System.Windows.Forms.Label();
             this.CbHechizo = new System.Windows.Forms.ComboBox();
             this.LbHechizo = new System.Windows.Forms.Label();
-            this.PnObjeto = new System.Windows.Forms.Panel();
             this.LbDanio = new System.Windows.Forms.Label();
             this.TxMinDanio = new System.Windows.Forms.TextBox();
             this.TxMaxDanio = new System.Windows.Forms.TextBox();
@@ -73,19 +72,23 @@ namespace CapaPresentacion
             this.TxAgilidad = new System.Windows.Forms.TextBox();
             this.LbPeso = new System.Windows.Forms.Label();
             this.TxPeso = new System.Windows.Forms.TextBox();
-            this.PnEquipo = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.BtGuardarEquipo = new System.Windows.Forms.Button();
             this.BtCancelar = new System.Windows.Forms.Button();
-            this.PnObjeto.SuspendLayout();
-            this.PnEquipo.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.GbBase = new System.Windows.Forms.GroupBox();
+            this.GbEstadisticas = new System.Windows.Forms.GroupBox();
+            this.GbEquipo = new System.Windows.Forms.GroupBox();
+            this.LbxClasesNo = new System.Windows.Forms.ListBox();
+            this.GbClasesNo = new System.Windows.Forms.GroupBox();
+            this.GbBase.SuspendLayout();
+            this.GbEstadisticas.SuspendLayout();
+            this.GbEquipo.SuspendLayout();
+            this.GbClasesNo.SuspendLayout();
             this.SuspendLayout();
             // 
             // LbNombre
             // 
             this.LbNombre.AutoSize = true;
-            this.LbNombre.Location = new System.Drawing.Point(12, 15);
+            this.LbNombre.Location = new System.Drawing.Point(6, 29);
             this.LbNombre.Name = "LbNombre";
             this.LbNombre.Size = new System.Drawing.Size(51, 15);
             this.LbNombre.TabIndex = 0;
@@ -93,22 +96,23 @@ namespace CapaPresentacion
             // 
             // TxNombre
             // 
-            this.TxNombre.Location = new System.Drawing.Point(69, 12);
+            this.TxNombre.Location = new System.Drawing.Point(63, 25);
             this.TxNombre.Name = "TxNombre";
             this.TxNombre.Size = new System.Drawing.Size(100, 23);
             this.TxNombre.TabIndex = 1;
             // 
             // TxPrecio
             // 
-            this.TxPrecio.Location = new System.Drawing.Point(69, 41);
+            this.TxPrecio.Location = new System.Drawing.Point(63, 54);
             this.TxPrecio.Name = "TxPrecio";
             this.TxPrecio.Size = new System.Drawing.Size(100, 23);
             this.TxPrecio.TabIndex = 3;
+            this.TxPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxPrecio_KeyPress);
             // 
             // LbPrecio
             // 
             this.LbPrecio.AutoSize = true;
-            this.LbPrecio.Location = new System.Drawing.Point(12, 44);
+            this.LbPrecio.Location = new System.Drawing.Point(6, 58);
             this.LbPrecio.Name = "LbPrecio";
             this.LbPrecio.Size = new System.Drawing.Size(40, 15);
             this.LbPrecio.TabIndex = 2;
@@ -117,7 +121,7 @@ namespace CapaPresentacion
             // LbTipo
             // 
             this.LbTipo.AutoSize = true;
-            this.LbTipo.Location = new System.Drawing.Point(12, 76);
+            this.LbTipo.Location = new System.Drawing.Point(6, 91);
             this.LbTipo.Name = "LbTipo";
             this.LbTipo.Size = new System.Drawing.Size(30, 15);
             this.LbTipo.TabIndex = 4;
@@ -126,7 +130,7 @@ namespace CapaPresentacion
             // CbTipo
             // 
             this.CbTipo.FormattingEnabled = true;
-            this.CbTipo.Location = new System.Drawing.Point(69, 73);
+            this.CbTipo.Location = new System.Drawing.Point(63, 87);
             this.CbTipo.Name = "CbTipo";
             this.CbTipo.Size = new System.Drawing.Size(121, 23);
             this.CbTipo.TabIndex = 5;
@@ -134,7 +138,7 @@ namespace CapaPresentacion
             // CbSonido
             // 
             this.CbSonido.FormattingEnabled = true;
-            this.CbSonido.Location = new System.Drawing.Point(69, 102);
+            this.CbSonido.Location = new System.Drawing.Point(63, 116);
             this.CbSonido.Name = "CbSonido";
             this.CbSonido.Size = new System.Drawing.Size(121, 23);
             this.CbSonido.TabIndex = 7;
@@ -142,7 +146,7 @@ namespace CapaPresentacion
             // LbSonido
             // 
             this.LbSonido.AutoSize = true;
-            this.LbSonido.Location = new System.Drawing.Point(12, 105);
+            this.LbSonido.Location = new System.Drawing.Point(6, 120);
             this.LbSonido.Name = "LbSonido";
             this.LbSonido.Size = new System.Drawing.Size(44, 15);
             this.LbSonido.TabIndex = 6;
@@ -151,7 +155,7 @@ namespace CapaPresentacion
             // CbImagen
             // 
             this.CbImagen.FormattingEnabled = true;
-            this.CbImagen.Location = new System.Drawing.Point(69, 131);
+            this.CbImagen.Location = new System.Drawing.Point(63, 144);
             this.CbImagen.Name = "CbImagen";
             this.CbImagen.Size = new System.Drawing.Size(121, 23);
             this.CbImagen.TabIndex = 9;
@@ -159,7 +163,7 @@ namespace CapaPresentacion
             // LbImagen
             // 
             this.LbImagen.AutoSize = true;
-            this.LbImagen.Location = new System.Drawing.Point(12, 134);
+            this.LbImagen.Location = new System.Drawing.Point(6, 148);
             this.LbImagen.Name = "LbImagen";
             this.LbImagen.Size = new System.Drawing.Size(47, 15);
             this.LbImagen.TabIndex = 8;
@@ -168,7 +172,7 @@ namespace CapaPresentacion
             // CbModelo3d
             // 
             this.CbModelo3d.FormattingEnabled = true;
-            this.CbModelo3d.Location = new System.Drawing.Point(69, 160);
+            this.CbModelo3d.Location = new System.Drawing.Point(63, 174);
             this.CbModelo3d.Name = "CbModelo3d";
             this.CbModelo3d.Size = new System.Drawing.Size(121, 23);
             this.CbModelo3d.TabIndex = 11;
@@ -176,7 +180,7 @@ namespace CapaPresentacion
             // LbModelo
             // 
             this.LbModelo.AutoSize = true;
-            this.LbModelo.Location = new System.Drawing.Point(12, 163);
+            this.LbModelo.Location = new System.Drawing.Point(6, 178);
             this.LbModelo.Name = "LbModelo";
             this.LbModelo.Size = new System.Drawing.Size(48, 15);
             this.LbModelo.TabIndex = 10;
@@ -185,7 +189,7 @@ namespace CapaPresentacion
             // CbHechizo
             // 
             this.CbHechizo.FormattingEnabled = true;
-            this.CbHechizo.Location = new System.Drawing.Point(69, 189);
+            this.CbHechizo.Location = new System.Drawing.Point(63, 203);
             this.CbHechizo.Name = "CbHechizo";
             this.CbHechizo.Size = new System.Drawing.Size(121, 23);
             this.CbHechizo.TabIndex = 13;
@@ -193,38 +197,16 @@ namespace CapaPresentacion
             // LbHechizo
             // 
             this.LbHechizo.AutoSize = true;
-            this.LbHechizo.Location = new System.Drawing.Point(12, 192);
+            this.LbHechizo.Location = new System.Drawing.Point(6, 207);
             this.LbHechizo.Name = "LbHechizo";
             this.LbHechizo.Size = new System.Drawing.Size(50, 15);
             this.LbHechizo.TabIndex = 12;
             this.LbHechizo.Text = "Hechizo";
             // 
-            // PnObjeto
-            // 
-            this.PnObjeto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PnObjeto.Controls.Add(this.LbNombre);
-            this.PnObjeto.Controls.Add(this.CbHechizo);
-            this.PnObjeto.Controls.Add(this.TxNombre);
-            this.PnObjeto.Controls.Add(this.LbHechizo);
-            this.PnObjeto.Controls.Add(this.LbPrecio);
-            this.PnObjeto.Controls.Add(this.CbModelo3d);
-            this.PnObjeto.Controls.Add(this.TxPrecio);
-            this.PnObjeto.Controls.Add(this.LbModelo);
-            this.PnObjeto.Controls.Add(this.LbTipo);
-            this.PnObjeto.Controls.Add(this.CbImagen);
-            this.PnObjeto.Controls.Add(this.CbTipo);
-            this.PnObjeto.Controls.Add(this.LbImagen);
-            this.PnObjeto.Controls.Add(this.LbSonido);
-            this.PnObjeto.Controls.Add(this.CbSonido);
-            this.PnObjeto.Location = new System.Drawing.Point(12, 12);
-            this.PnObjeto.Name = "PnObjeto";
-            this.PnObjeto.Size = new System.Drawing.Size(206, 233);
-            this.PnObjeto.TabIndex = 14;
-            // 
             // LbDanio
             // 
             this.LbDanio.AutoSize = true;
-            this.LbDanio.Location = new System.Drawing.Point(12, 17);
+            this.LbDanio.Location = new System.Drawing.Point(6, 28);
             this.LbDanio.Name = "LbDanio";
             this.LbDanio.Size = new System.Drawing.Size(35, 15);
             this.LbDanio.TabIndex = 15;
@@ -232,21 +214,21 @@ namespace CapaPresentacion
             // 
             // TxMinDanio
             // 
-            this.TxMinDanio.Location = new System.Drawing.Point(105, 12);
+            this.TxMinDanio.Location = new System.Drawing.Point(82, 22);
             this.TxMinDanio.Name = "TxMinDanio";
             this.TxMinDanio.Size = new System.Drawing.Size(47, 23);
             this.TxMinDanio.TabIndex = 16;
             // 
             // TxMaxDanio
             // 
-            this.TxMaxDanio.Location = new System.Drawing.Point(158, 12);
+            this.TxMaxDanio.Location = new System.Drawing.Point(135, 23);
             this.TxMaxDanio.Name = "TxMaxDanio";
             this.TxMaxDanio.Size = new System.Drawing.Size(47, 23);
             this.TxMaxDanio.TabIndex = 17;
             // 
             // TxMaxDanioMagico
             // 
-            this.TxMaxDanioMagico.Location = new System.Drawing.Point(158, 41);
+            this.TxMaxDanioMagico.Location = new System.Drawing.Point(135, 52);
             this.TxMaxDanioMagico.Name = "TxMaxDanioMagico";
             this.TxMaxDanioMagico.Size = new System.Drawing.Size(47, 23);
             this.TxMaxDanioMagico.TabIndex = 20;
@@ -254,22 +236,22 @@ namespace CapaPresentacion
             // LbDanioMagico
             // 
             this.LbDanioMagico.AutoSize = true;
-            this.LbDanioMagico.Location = new System.Drawing.Point(12, 41);
+            this.LbDanioMagico.Location = new System.Drawing.Point(6, 56);
             this.LbDanioMagico.Name = "LbDanioMagico";
-            this.LbDanioMagico.Size = new System.Drawing.Size(78, 15);
+            this.LbDanioMagico.Size = new System.Drawing.Size(65, 15);
             this.LbDanioMagico.TabIndex = 18;
-            this.LbDanioMagico.Text = "Daño Mágico";
+            this.LbDanioMagico.Text = "Daño Mág.";
             // 
             // TxMinDanioMagico
             // 
-            this.TxMinDanioMagico.Location = new System.Drawing.Point(105, 41);
+            this.TxMinDanioMagico.Location = new System.Drawing.Point(82, 52);
             this.TxMinDanioMagico.Name = "TxMinDanioMagico";
             this.TxMinDanioMagico.Size = new System.Drawing.Size(47, 23);
             this.TxMinDanioMagico.TabIndex = 19;
             // 
             // TxMaxDefensaCasco
             // 
-            this.TxMaxDefensaCasco.Location = new System.Drawing.Point(158, 70);
+            this.TxMaxDefensaCasco.Location = new System.Drawing.Point(135, 81);
             this.TxMaxDefensaCasco.Name = "TxMaxDefensaCasco";
             this.TxMaxDefensaCasco.Size = new System.Drawing.Size(47, 23);
             this.TxMaxDefensaCasco.TabIndex = 23;
@@ -277,22 +259,22 @@ namespace CapaPresentacion
             // LbDefensaCasco
             // 
             this.LbDefensaCasco.AutoSize = true;
-            this.LbDefensaCasco.Location = new System.Drawing.Point(12, 73);
+            this.LbDefensaCasco.Location = new System.Drawing.Point(6, 85);
             this.LbDefensaCasco.Name = "LbDefensaCasco";
-            this.LbDefensaCasco.Size = new System.Drawing.Size(84, 15);
+            this.LbDefensaCasco.Size = new System.Drawing.Size(63, 15);
             this.LbDefensaCasco.TabIndex = 21;
-            this.LbDefensaCasco.Text = "Defensa Casco";
+            this.LbDefensaCasco.Text = "Def. Casco";
             // 
             // TxMinDefensaCasco
             // 
-            this.TxMinDefensaCasco.Location = new System.Drawing.Point(105, 70);
+            this.TxMinDefensaCasco.Location = new System.Drawing.Point(82, 81);
             this.TxMinDefensaCasco.Name = "TxMinDefensaCasco";
             this.TxMinDefensaCasco.Size = new System.Drawing.Size(47, 23);
             this.TxMinDefensaCasco.TabIndex = 22;
             // 
             // TxMaxDefensaCuerpo
             // 
-            this.TxMaxDefensaCuerpo.Location = new System.Drawing.Point(375, 9);
+            this.TxMaxDefensaCuerpo.Location = new System.Drawing.Point(135, 110);
             this.TxMaxDefensaCuerpo.Name = "TxMaxDefensaCuerpo";
             this.TxMaxDefensaCuerpo.Size = new System.Drawing.Size(47, 23);
             this.TxMaxDefensaCuerpo.TabIndex = 26;
@@ -300,22 +282,22 @@ namespace CapaPresentacion
             // LbDefensaCuerpo
             // 
             this.LbDefensaCuerpo.AutoSize = true;
-            this.LbDefensaCuerpo.Location = new System.Drawing.Point(225, 15);
+            this.LbDefensaCuerpo.Location = new System.Drawing.Point(6, 114);
             this.LbDefensaCuerpo.Name = "LbDefensaCuerpo";
-            this.LbDefensaCuerpo.Size = new System.Drawing.Size(91, 15);
+            this.LbDefensaCuerpo.Size = new System.Drawing.Size(70, 15);
             this.LbDefensaCuerpo.TabIndex = 24;
-            this.LbDefensaCuerpo.Text = "Defensa Cuerpo";
+            this.LbDefensaCuerpo.Text = "Def. Cuerpo";
             // 
             // TxMinDefensaCuerpo
             // 
-            this.TxMinDefensaCuerpo.Location = new System.Drawing.Point(322, 9);
+            this.TxMinDefensaCuerpo.Location = new System.Drawing.Point(82, 110);
             this.TxMinDefensaCuerpo.Name = "TxMinDefensaCuerpo";
             this.TxMinDefensaCuerpo.Size = new System.Drawing.Size(47, 23);
             this.TxMinDefensaCuerpo.TabIndex = 25;
             // 
             // TxMaxDefensaMagica
             // 
-            this.TxMaxDefensaMagica.Location = new System.Drawing.Point(375, 38);
+            this.TxMaxDefensaMagica.Location = new System.Drawing.Point(135, 139);
             this.TxMaxDefensaMagica.Name = "TxMaxDefensaMagica";
             this.TxMaxDefensaMagica.Size = new System.Drawing.Size(47, 23);
             this.TxMaxDefensaMagica.TabIndex = 29;
@@ -323,15 +305,15 @@ namespace CapaPresentacion
             // LbDefensaMagica
             // 
             this.LbDefensaMagica.AutoSize = true;
-            this.LbDefensaMagica.Location = new System.Drawing.Point(225, 41);
+            this.LbDefensaMagica.Location = new System.Drawing.Point(6, 143);
             this.LbDefensaMagica.Name = "LbDefensaMagica";
-            this.LbDefensaMagica.Size = new System.Drawing.Size(91, 15);
+            this.LbDefensaMagica.Size = new System.Drawing.Size(70, 15);
             this.LbDefensaMagica.TabIndex = 27;
-            this.LbDefensaMagica.Text = "Defensa Magica";
+            this.LbDefensaMagica.Text = "Def. Mágica";
             // 
             // TxMinDefensaMagica
             // 
-            this.TxMinDefensaMagica.Location = new System.Drawing.Point(322, 38);
+            this.TxMinDefensaMagica.Location = new System.Drawing.Point(82, 139);
             this.TxMinDefensaMagica.Name = "TxMinDefensaMagica";
             this.TxMinDefensaMagica.Size = new System.Drawing.Size(47, 23);
             this.TxMinDefensaMagica.TabIndex = 28;
@@ -339,7 +321,7 @@ namespace CapaPresentacion
             // LbSalud
             // 
             this.LbSalud.AutoSize = true;
-            this.LbSalud.Location = new System.Drawing.Point(13, 13);
+            this.LbSalud.Location = new System.Drawing.Point(6, 29);
             this.LbSalud.Name = "LbSalud";
             this.LbSalud.Size = new System.Drawing.Size(36, 15);
             this.LbSalud.TabIndex = 14;
@@ -347,7 +329,7 @@ namespace CapaPresentacion
             // 
             // TxSalud
             // 
-            this.TxSalud.Location = new System.Drawing.Point(69, 10);
+            this.TxSalud.Location = new System.Drawing.Point(62, 25);
             this.TxSalud.Name = "TxSalud";
             this.TxSalud.Size = new System.Drawing.Size(100, 23);
             this.TxSalud.TabIndex = 15;
@@ -355,7 +337,7 @@ namespace CapaPresentacion
             // LbMana
             // 
             this.LbMana.AutoSize = true;
-            this.LbMana.Location = new System.Drawing.Point(13, 42);
+            this.LbMana.Location = new System.Drawing.Point(6, 59);
             this.LbMana.Name = "LbMana";
             this.LbMana.Size = new System.Drawing.Size(37, 15);
             this.LbMana.TabIndex = 30;
@@ -363,7 +345,7 @@ namespace CapaPresentacion
             // 
             // TxMana
             // 
-            this.TxMana.Location = new System.Drawing.Point(69, 39);
+            this.TxMana.Location = new System.Drawing.Point(62, 55);
             this.TxMana.Name = "TxMana";
             this.TxMana.Size = new System.Drawing.Size(100, 23);
             this.TxMana.TabIndex = 31;
@@ -371,7 +353,7 @@ namespace CapaPresentacion
             // LbHambre
             // 
             this.LbHambre.AutoSize = true;
-            this.LbHambre.Location = new System.Drawing.Point(13, 71);
+            this.LbHambre.Location = new System.Drawing.Point(6, 87);
             this.LbHambre.Name = "LbHambre";
             this.LbHambre.Size = new System.Drawing.Size(50, 15);
             this.LbHambre.TabIndex = 32;
@@ -379,7 +361,7 @@ namespace CapaPresentacion
             // 
             // TxHambre
             // 
-            this.TxHambre.Location = new System.Drawing.Point(69, 68);
+            this.TxHambre.Location = new System.Drawing.Point(62, 83);
             this.TxHambre.Name = "TxHambre";
             this.TxHambre.Size = new System.Drawing.Size(100, 23);
             this.TxHambre.TabIndex = 33;
@@ -387,7 +369,7 @@ namespace CapaPresentacion
             // LbSed
             // 
             this.LbSed.AutoSize = true;
-            this.LbSed.Location = new System.Drawing.Point(13, 100);
+            this.LbSed.Location = new System.Drawing.Point(6, 116);
             this.LbSed.Name = "LbSed";
             this.LbSed.Size = new System.Drawing.Size(26, 15);
             this.LbSed.TabIndex = 34;
@@ -395,7 +377,7 @@ namespace CapaPresentacion
             // 
             // TxSed
             // 
-            this.TxSed.Location = new System.Drawing.Point(69, 97);
+            this.TxSed.Location = new System.Drawing.Point(62, 112);
             this.TxSed.Name = "TxSed";
             this.TxSed.Size = new System.Drawing.Size(100, 23);
             this.TxSed.TabIndex = 35;
@@ -403,7 +385,7 @@ namespace CapaPresentacion
             // LbFuerza
             // 
             this.LbFuerza.AutoSize = true;
-            this.LbFuerza.Location = new System.Drawing.Point(13, 129);
+            this.LbFuerza.Location = new System.Drawing.Point(6, 146);
             this.LbFuerza.Name = "LbFuerza";
             this.LbFuerza.Size = new System.Drawing.Size(41, 15);
             this.LbFuerza.TabIndex = 36;
@@ -411,7 +393,7 @@ namespace CapaPresentacion
             // 
             // TxFuerza
             // 
-            this.TxFuerza.Location = new System.Drawing.Point(69, 126);
+            this.TxFuerza.Location = new System.Drawing.Point(62, 142);
             this.TxFuerza.Name = "TxFuerza";
             this.TxFuerza.Size = new System.Drawing.Size(100, 23);
             this.TxFuerza.TabIndex = 37;
@@ -419,7 +401,7 @@ namespace CapaPresentacion
             // LbAgilidad
             // 
             this.LbAgilidad.AutoSize = true;
-            this.LbAgilidad.Location = new System.Drawing.Point(13, 158);
+            this.LbAgilidad.Location = new System.Drawing.Point(6, 174);
             this.LbAgilidad.Name = "LbAgilidad";
             this.LbAgilidad.Size = new System.Drawing.Size(51, 15);
             this.LbAgilidad.TabIndex = 38;
@@ -427,7 +409,7 @@ namespace CapaPresentacion
             // 
             // TxAgilidad
             // 
-            this.TxAgilidad.Location = new System.Drawing.Point(69, 155);
+            this.TxAgilidad.Location = new System.Drawing.Point(62, 170);
             this.TxAgilidad.Name = "TxAgilidad";
             this.TxAgilidad.Size = new System.Drawing.Size(100, 23);
             this.TxAgilidad.TabIndex = 39;
@@ -435,7 +417,7 @@ namespace CapaPresentacion
             // LbPeso
             // 
             this.LbPeso.AutoSize = true;
-            this.LbPeso.Location = new System.Drawing.Point(13, 187);
+            this.LbPeso.Location = new System.Drawing.Point(6, 203);
             this.LbPeso.Name = "LbPeso";
             this.LbPeso.Size = new System.Drawing.Size(32, 15);
             this.LbPeso.TabIndex = 40;
@@ -443,59 +425,14 @@ namespace CapaPresentacion
             // 
             // TxPeso
             // 
-            this.TxPeso.Location = new System.Drawing.Point(69, 184);
+            this.TxPeso.Location = new System.Drawing.Point(62, 199);
             this.TxPeso.Name = "TxPeso";
             this.TxPeso.Size = new System.Drawing.Size(100, 23);
             this.TxPeso.TabIndex = 41;
             // 
-            // PnEquipo
-            // 
-            this.PnEquipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PnEquipo.Controls.Add(this.LbSalud);
-            this.PnEquipo.Controls.Add(this.LbPeso);
-            this.PnEquipo.Controls.Add(this.TxSalud);
-            this.PnEquipo.Controls.Add(this.TxPeso);
-            this.PnEquipo.Controls.Add(this.TxMana);
-            this.PnEquipo.Controls.Add(this.LbAgilidad);
-            this.PnEquipo.Controls.Add(this.LbMana);
-            this.PnEquipo.Controls.Add(this.TxAgilidad);
-            this.PnEquipo.Controls.Add(this.TxHambre);
-            this.PnEquipo.Controls.Add(this.LbFuerza);
-            this.PnEquipo.Controls.Add(this.LbHambre);
-            this.PnEquipo.Controls.Add(this.TxFuerza);
-            this.PnEquipo.Controls.Add(this.TxSed);
-            this.PnEquipo.Controls.Add(this.LbSed);
-            this.PnEquipo.Location = new System.Drawing.Point(238, 12);
-            this.PnEquipo.Name = "PnEquipo";
-            this.PnEquipo.Size = new System.Drawing.Size(206, 233);
-            this.PnEquipo.TabIndex = 42;
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.LbDanio);
-            this.panel1.Controls.Add(this.TxMinDanio);
-            this.panel1.Controls.Add(this.TxMaxDefensaMagica);
-            this.panel1.Controls.Add(this.TxMaxDanio);
-            this.panel1.Controls.Add(this.LbDefensaMagica);
-            this.panel1.Controls.Add(this.TxMinDanioMagico);
-            this.panel1.Controls.Add(this.TxMinDefensaMagica);
-            this.panel1.Controls.Add(this.LbDanioMagico);
-            this.panel1.Controls.Add(this.TxMaxDefensaCuerpo);
-            this.panel1.Controls.Add(this.TxMaxDanioMagico);
-            this.panel1.Controls.Add(this.LbDefensaCuerpo);
-            this.panel1.Controls.Add(this.TxMinDefensaCasco);
-            this.panel1.Controls.Add(this.TxMinDefensaCuerpo);
-            this.panel1.Controls.Add(this.LbDefensaCasco);
-            this.panel1.Controls.Add(this.TxMaxDefensaCasco);
-            this.panel1.Location = new System.Drawing.Point(12, 265);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(432, 109);
-            this.panel1.TabIndex = 43;
-            // 
             // BtGuardarEquipo
             // 
-            this.BtGuardarEquipo.Location = new System.Drawing.Point(369, 380);
+            this.BtGuardarEquipo.Location = new System.Drawing.Point(325, 411);
             this.BtGuardarEquipo.Name = "BtGuardarEquipo";
             this.BtGuardarEquipo.Size = new System.Drawing.Size(75, 23);
             this.BtGuardarEquipo.TabIndex = 44;
@@ -505,7 +442,7 @@ namespace CapaPresentacion
             // 
             // BtCancelar
             // 
-            this.BtCancelar.Location = new System.Drawing.Point(12, 380);
+            this.BtCancelar.Location = new System.Drawing.Point(225, 411);
             this.BtCancelar.Name = "BtCancelar";
             this.BtCancelar.Size = new System.Drawing.Size(75, 23);
             this.BtCancelar.TabIndex = 45;
@@ -513,24 +450,116 @@ namespace CapaPresentacion
             this.BtCancelar.UseVisualStyleBackColor = true;
             this.BtCancelar.Click += new System.EventHandler(this.BtCancelar_Click);
             // 
+            // GbBase
+            // 
+            this.GbBase.Controls.Add(this.LbNombre);
+            this.GbBase.Controls.Add(this.CbHechizo);
+            this.GbBase.Controls.Add(this.CbSonido);
+            this.GbBase.Controls.Add(this.TxNombre);
+            this.GbBase.Controls.Add(this.LbSonido);
+            this.GbBase.Controls.Add(this.LbHechizo);
+            this.GbBase.Controls.Add(this.LbImagen);
+            this.GbBase.Controls.Add(this.LbPrecio);
+            this.GbBase.Controls.Add(this.CbTipo);
+            this.GbBase.Controls.Add(this.CbModelo3d);
+            this.GbBase.Controls.Add(this.CbImagen);
+            this.GbBase.Controls.Add(this.TxPrecio);
+            this.GbBase.Controls.Add(this.LbTipo);
+            this.GbBase.Controls.Add(this.LbModelo);
+            this.GbBase.Location = new System.Drawing.Point(12, 12);
+            this.GbBase.Name = "GbBase";
+            this.GbBase.Size = new System.Drawing.Size(207, 240);
+            this.GbBase.TabIndex = 46;
+            this.GbBase.TabStop = false;
+            this.GbBase.Text = "Base";
+            // 
+            // GbEstadisticas
+            // 
+            this.GbEstadisticas.Controls.Add(this.LbSalud);
+            this.GbEstadisticas.Controls.Add(this.LbPeso);
+            this.GbEstadisticas.Controls.Add(this.LbSed);
+            this.GbEstadisticas.Controls.Add(this.TxSalud);
+            this.GbEstadisticas.Controls.Add(this.TxSed);
+            this.GbEstadisticas.Controls.Add(this.TxPeso);
+            this.GbEstadisticas.Controls.Add(this.TxFuerza);
+            this.GbEstadisticas.Controls.Add(this.TxMana);
+            this.GbEstadisticas.Controls.Add(this.LbHambre);
+            this.GbEstadisticas.Controls.Add(this.LbAgilidad);
+            this.GbEstadisticas.Controls.Add(this.LbFuerza);
+            this.GbEstadisticas.Controls.Add(this.LbMana);
+            this.GbEstadisticas.Controls.Add(this.TxHambre);
+            this.GbEstadisticas.Controls.Add(this.TxAgilidad);
+            this.GbEstadisticas.Location = new System.Drawing.Point(225, 12);
+            this.GbEstadisticas.Name = "GbEstadisticas";
+            this.GbEstadisticas.Size = new System.Drawing.Size(175, 240);
+            this.GbEstadisticas.TabIndex = 47;
+            this.GbEstadisticas.TabStop = false;
+            this.GbEstadisticas.Text = "Estadísticas";
+            // 
+            // GbEquipo
+            // 
+            this.GbEquipo.Controls.Add(this.LbDanio);
+            this.GbEquipo.Controls.Add(this.TxMinDanio);
+            this.GbEquipo.Controls.Add(this.TxMaxDefensaCasco);
+            this.GbEquipo.Controls.Add(this.TxMaxDefensaMagica);
+            this.GbEquipo.Controls.Add(this.LbDefensaCasco);
+            this.GbEquipo.Controls.Add(this.TxMaxDanio);
+            this.GbEquipo.Controls.Add(this.TxMinDefensaCuerpo);
+            this.GbEquipo.Controls.Add(this.LbDefensaMagica);
+            this.GbEquipo.Controls.Add(this.TxMinDefensaCasco);
+            this.GbEquipo.Controls.Add(this.TxMinDanioMagico);
+            this.GbEquipo.Controls.Add(this.LbDefensaCuerpo);
+            this.GbEquipo.Controls.Add(this.TxMinDefensaMagica);
+            this.GbEquipo.Controls.Add(this.TxMaxDanioMagico);
+            this.GbEquipo.Controls.Add(this.LbDanioMagico);
+            this.GbEquipo.Controls.Add(this.TxMaxDefensaCuerpo);
+            this.GbEquipo.Location = new System.Drawing.Point(12, 258);
+            this.GbEquipo.Name = "GbEquipo";
+            this.GbEquipo.Size = new System.Drawing.Size(207, 176);
+            this.GbEquipo.TabIndex = 48;
+            this.GbEquipo.TabStop = false;
+            this.GbEquipo.Text = "Equipo";
+            // 
+            // LbxClasesNo
+            // 
+            this.LbxClasesNo.FormattingEnabled = true;
+            this.LbxClasesNo.ItemHeight = 15;
+            this.LbxClasesNo.Location = new System.Drawing.Point(6, 23);
+            this.LbxClasesNo.Name = "LbxClasesNo";
+            this.LbxClasesNo.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.LbxClasesNo.Size = new System.Drawing.Size(156, 109);
+            this.LbxClasesNo.TabIndex = 49;
+            // 
+            // GbClasesNo
+            // 
+            this.GbClasesNo.Controls.Add(this.LbxClasesNo);
+            this.GbClasesNo.Location = new System.Drawing.Point(225, 258);
+            this.GbClasesNo.Name = "GbClasesNo";
+            this.GbClasesNo.Size = new System.Drawing.Size(175, 147);
+            this.GbClasesNo.TabIndex = 50;
+            this.GbClasesNo.TabStop = false;
+            this.GbClasesNo.Text = "Clases No Permitidas";
+            // 
             // FormularioObjeto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 416);
+            this.ClientSize = new System.Drawing.Size(415, 444);
+            this.Controls.Add(this.GbClasesNo);
+            this.Controls.Add(this.GbEquipo);
+            this.Controls.Add(this.GbEstadisticas);
+            this.Controls.Add(this.GbBase);
             this.Controls.Add(this.BtCancelar);
             this.Controls.Add(this.BtGuardarEquipo);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.PnEquipo);
-            this.Controls.Add(this.PnObjeto);
             this.Name = "FormularioObjeto";
             this.Text = "Nuevo Objeto";
-            this.PnObjeto.ResumeLayout(false);
-            this.PnObjeto.PerformLayout();
-            this.PnEquipo.ResumeLayout(false);
-            this.PnEquipo.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.GbBase.ResumeLayout(false);
+            this.GbBase.PerformLayout();
+            this.GbEstadisticas.ResumeLayout(false);
+            this.GbEstadisticas.PerformLayout();
+            this.GbEquipo.ResumeLayout(false);
+            this.GbEquipo.PerformLayout();
+            this.GbClasesNo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -551,7 +580,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label LbModelo;
         private System.Windows.Forms.ComboBox CbHechizo;
         private System.Windows.Forms.Label LbHechizo;
-        private System.Windows.Forms.Panel PnObjeto;
         private System.Windows.Forms.Label LbDanio;
         private System.Windows.Forms.TextBox TxMinDanio;
         private System.Windows.Forms.TextBox TxMaxDanio;
@@ -581,9 +609,12 @@ namespace CapaPresentacion
         private System.Windows.Forms.TextBox TxAgilidad;
         private System.Windows.Forms.Label LbPeso;
         private System.Windows.Forms.TextBox TxPeso;
-        private System.Windows.Forms.Panel PnEquipo;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtGuardarEquipo;
         private System.Windows.Forms.Button BtCancelar;
+        private System.Windows.Forms.GroupBox GbBase;
+        private System.Windows.Forms.GroupBox GbEstadisticas;
+        private System.Windows.Forms.GroupBox GbEquipo;
+        private System.Windows.Forms.ListBox LbxClasesNo;
+        private System.Windows.Forms.GroupBox GbClasesNo;
     }
 }

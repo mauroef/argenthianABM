@@ -27,14 +27,14 @@ namespace CapaDatos.Objeto
 
             lista.Add(objeto);
 
-            GuardarDatos(JsonConvert.SerializeObject(lista, Formatting.Indented));
+            EscribirDatos(JsonConvert.SerializeObject(lista, Formatting.Indented));
         }
 
         public void Eliminar(short id)
         {
             List<Objeto> lista = JsonConvert.DeserializeObject<List<Objeto>>(LeerDatos());
 
-            GuardarDatos(JsonConvert.SerializeObject(lista.Where(o => o.id != id).ToList(), Formatting.Indented));
+            EscribirDatos(JsonConvert.SerializeObject(lista.Where(o => o.id != id).ToList(), Formatting.Indented));
         }
     }
 }
