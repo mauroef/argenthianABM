@@ -21,6 +21,13 @@ namespace CapaDatos.Objeto
             return lista;
         }
 
+        public short ObtenerUltimoId()
+        {
+            List<Objeto> lista = JsonConvert.DeserializeObject<List<Objeto>>(LeerDatos());
+
+            return lista.LastOrDefault().id;
+        }
+
         public void Guardar(Objeto objeto)
         {
             List<Objeto> lista = JsonConvert.DeserializeObject<List<Objeto>>(LeerDatos());

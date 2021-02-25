@@ -545,10 +545,10 @@ namespace CapaPresentacion
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(415, 444);
+            this.Controls.Add(this.GbBase);
             this.Controls.Add(this.GbClasesNo);
             this.Controls.Add(this.GbEquipo);
             this.Controls.Add(this.GbEstadisticas);
-            this.Controls.Add(this.GbBase);
             this.Controls.Add(this.BtCancelar);
             this.Controls.Add(this.BtGuardarEquipo);
             this.Name = "FormularioObjeto";
