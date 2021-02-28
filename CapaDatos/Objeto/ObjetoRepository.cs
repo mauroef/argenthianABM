@@ -21,11 +21,25 @@ namespace CapaDatos.Objeto
             return lista;
         }
 
+        public Objeto ObtenerPorId(short id)
+        { 
+            Objeto objeto = JsonConvert.DeserializeObject<List<Objeto>>(LeerDatos()).Where(o => o.id == id).FirstOrDefault();
+
+            return objeto;
+        }
+
         public short ObtenerUltimoId()
         {
             List<Objeto> lista = JsonConvert.DeserializeObject<List<Objeto>>(LeerDatos());
 
-            return lista.LastOrDefault().id;
+            try
+            {
+                return lista.LastOrDefault().id;
+            }
+            catch (Exception)
+            {
+                return 1;
+            }
         }
 
         public void Guardar(Objeto objeto)
@@ -35,6 +49,16 @@ namespace CapaDatos.Objeto
             lista.Add(objeto);
 
             EscribirDatos(JsonConvert.SerializeObject(lista, Formatting.Indented));
+        }
+
+        public void Editar(short id, Objeto objeto)
+        {
+            List<Objeto> lista = JsonConvert.DeserializeObject<List<Objeto>>(LeerDatos());
+
+            List<Objeto> listaEditada = lista.Select(o => o = objeto).Where(o => o.id == id).ToList();
+
+
+            EscribirDatos(JsonConvert.SerializeObject(listaEditada, Formatting.Indented));
         }
 
         public void Eliminar(short id)

@@ -1,21 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using CapaNegocio.Modelos;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using CapaDatos.Objeto;
-using CapaNegocio.Modelos;
-using Newtonsoft.Json;
 
 namespace CapaPresentacion
 {
     public partial class Grilla : Form
     {
+        #region Propiedades
+
         ObjetoModel objeto = new ObjetoModel();
+
+        #endregion
+
+        #region Inicializacion
 
         public Grilla()
         {
@@ -25,24 +23,32 @@ namespace CapaPresentacion
 
         private void MostrarObjetos()
         {
-            DataTable tabla = objeto.ObtenerDatos();
-
-            var btEliminar = SetearBotonEliminar();
-
-            DataGridViewObjeto.DataSource = tabla;
-            DataGridViewObjeto.Columns.Add(btEliminar);            
+            DataGridViewObjeto.DataSource = objeto.ObtenerDatos();
+            DataGridViewObjeto.Columns.Add(SetearBoton("btEliminar", "Eliminar"));
+            DataGridViewObjeto.Columns.Add(SetearBoton("btEditar", "Editar"));
         }
 
-        private DataGridViewButtonColumn SetearBotonEliminar()
+        private DataGridViewButtonColumn SetearBoton(string nombre, string texto)
         {
             DataGridViewButtonColumn boton = new DataGridViewButtonColumn();
 
-            boton.Name = "btEliminar";
-            boton.HeaderText = "Eliminar";
-            boton.Text = "Eliminar";
+            boton.Name = nombre;
+            boton.HeaderText = texto;
+            boton.Text = texto;
             boton.UseColumnTextForButtonValue = true;
 
             return boton;
+        }
+
+        #endregion
+
+        #region Eventos
+
+        private void BtNuevo_Click(object sender, EventArgs e)
+        {
+            FormularioObjeto formulario = new FormularioObjeto();
+
+            formulario.Show();
         }
 
         private void DataGridViewObjeto_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -69,13 +75,21 @@ namespace CapaPresentacion
                     }
                 }
             }
+
+            if (e.ColumnIndex == DataGridViewObjeto.Columns["btEditar"].Index)
+            {
+                short id = (short)DataGridViewObjeto.Rows[e.RowIndex].Cells["id"].Value;                
+
+                if (id > 0)
+                {
+                    FormularioObjeto formulario = new FormularioObjeto(objeto.ObtenerPorId(id));
+
+                    formulario.Show();
+                    
+                }
+            }
         }
 
-        private void BtNuevo_Click(object sender, EventArgs e)
-        {
-            FormularioObjeto formulario = new FormularioObjeto();
-
-            formulario.Show();
-        }
+        #endregion
     }
 }

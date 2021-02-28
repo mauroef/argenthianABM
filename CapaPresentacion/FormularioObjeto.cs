@@ -20,11 +20,71 @@ namespace CapaPresentacion
 
         #region Inicializacion
 
-        public FormularioObjeto()
+        public FormularioObjeto(ObjetoModel o = null)
         {
             InitializeComponent();
             InicializarCombos();
             InicializarListBox();
+
+            if (o != null)
+            {
+                objetoModel.Id = o.Id;
+                MapearFormulario(o);
+            }
+        }
+
+        private void MapearFormulario(ObjetoModel o)
+        {
+            MapearFormularioBase(o);
+            MapearFormularioEquipo(o.Equipo);
+            MapearFormularioEstadisticas(o.Estadisticas);
+            MapearFormularioClasesNoPermitidas(o.ClasesNoPermitidas);
+        }
+
+        private void MapearFormularioBase(ObjetoModel o)
+        {
+            TxNombre.Text = o.Nombre;
+            TxPrecio.Text = o.Precio.ToString();
+            CbTipo.SelectedValue = o.Tipo;
+            CbSonido.SelectedValue = (short)o.IdSonido;
+            CbImagen.SelectedValue = (short)o.IdImagen;
+            CbModelo3d.SelectedValue = (short)o.IdModelo3d;
+            CbHechizo.SelectedValue = o.IdHechizo;
+        }
+
+        private void MapearFormularioEquipo(EquipoModel e)
+        {
+            TxMinDanio.Text = e.MinDaño.ToString();
+            TxMaxDanio.Text = e.MaxDaño.ToString();
+            TxMinDanioMagico.Text = e.MinDañoMagico.ToString();
+            TxMaxDanioMagico.Text = e.MaxDañoMagico.ToString();
+            TxMinDefensaCasco.Text = e.MinDefCasco.ToString();
+            TxMaxDefensaCasco.Text = e.MaxDefCasco.ToString();
+            TxMinDefensaCuerpo.Text = e.MinDefCuerpo.ToString();
+            TxMaxDefensaCuerpo.Text = e.MaxDefCuerpo.ToString();
+            TxMinDefensaMagica.Text = e.MinDefMagica.ToString();
+            TxMaxDefensaMagica.Text = e.MaxDefMagica.ToString();
+        }
+
+        private void MapearFormularioEstadisticas(EstadisticasModel e)
+        {
+            TxSalud.Text = e.Salud.ToString();
+            TxMana.Text = e.Mana.ToString();
+            TxHambre.Text = e.Hambre.ToString();
+            TxSed.Text = e.Sed.ToString();
+            TxFuerza.Text = e.Fuerza.ToString();
+            TxAgilidad.Text = e.Agilidad.ToString();
+            TxPeso.Text = e.Peso.ToString();
+        }
+
+        private void MapearFormularioClasesNoPermitidas(List<short> clasesNoPermitidas)
+        {
+            LbxClasesNo.SetSelected(0, false);
+
+            foreach (short clase in clasesNoPermitidas)
+            {
+                LbxClasesNo.SetSelected((short)(clase - 1), true);
+            }
         }
 
         #endregion
@@ -38,28 +98,38 @@ namespace CapaPresentacion
 
         private void BtGuardarEquipo_Click(object sender, EventArgs e)
         {
-            ObtenerValoresListBox();
-
             if (ValidarDatosFormulario())
             {
+                short id = objetoModel.Id;
                 objetoModel = objetoModel.MapearObjetoModel(TxNombre.Text, TxPrecio.Text, CbTipo.SelectedValue.ToString(), CbSonido.SelectedValue.ToString(), CbImagen.SelectedValue.ToString(),
                                                             CbModelo3d.SelectedValue.ToString(), CbHechizo.SelectedValue.ToString(), ObtenerValoresListBox(), TxSalud.Text, TxMana.Text, 
                                                             TxHambre.Text, TxSed.Text, TxFuerza.Text, TxAgilidad.Text, TxPeso.Text,
                                                             TxMinDanio.Text, TxMaxDanio.Text, TxMinDanioMagico.Text, TxMaxDanioMagico.Text, TxMinDefensaCasco.Text, 
                                                             TxMaxDefensaCasco.Text, TxMinDefensaCuerpo.Text, TxMaxDefensaCuerpo.Text, TxMinDefensaMagica.Text, TxMaxDefensaMagica.Text);
-
-                if (objetoModel.ValidarDatos(objetoModel) && objetoModel.GuadarDatos(objetoModel))
+                
+                if (objetoModel.ValidarDatos(objetoModel))
                 {
-                    MessageBox.Show("El objeto fue agregado correctamente.", "Éxito", MessageBoxButtons.OK);
+                    if (id == 0 && objetoModel.GuadarDatos(objetoModel))
+                    {
+                        MessageBox.Show("El objeto fue agregado correctamente.", "Éxito", MessageBoxButtons.OK);
+                    }
+                    else if (objetoModel.EditarPorId(id, objetoModel))
+                    {
+                        MessageBox.Show("El objeto fue editado correctamente.", "Éxito", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Hubo un problema al procesar la operación.", "Error", MessageBoxButtons.OK);
+                    }                    
                 }
                 else
                 {
-                    MessageBox.Show("Hubo un problema al guardar el objeto.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Hubo un problema al validar los datos el objeto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("No se permiten campos vacíos!.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se permiten campos vacíos!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -85,11 +155,11 @@ namespace CapaPresentacion
 
         private bool ValidarDatosFormulario()
         {
-            return !(String.IsNullOrEmpty(TxNombre.Text) && String.IsNullOrEmpty(TxPrecio.Text) && String.IsNullOrEmpty(TxSalud.Text) && String.IsNullOrEmpty(TxMana.Text) &&
-                String.IsNullOrEmpty(TxMana.Text) && String.IsNullOrEmpty(TxHambre.Text) && String.IsNullOrEmpty(TxSed.Text) && String.IsNullOrEmpty(TxFuerza.Text) &&
-                String.IsNullOrEmpty(TxAgilidad.Text) && String.IsNullOrEmpty(TxPeso.Text) && String.IsNullOrEmpty(TxMinDanio.Text) && String.IsNullOrEmpty(TxMaxDanio.Text) &&
-                String.IsNullOrEmpty(TxMinDanioMagico.Text) && String.IsNullOrEmpty(TxMaxDanioMagico.Text) && String.IsNullOrEmpty(TxMinDefensaCasco.Text) && String.IsNullOrEmpty(TxMaxDefensaCasco.Text) &&
-                String.IsNullOrEmpty(TxMinDefensaCuerpo.Text) && String.IsNullOrEmpty(TxMaxDefensaCuerpo.Text) && String.IsNullOrEmpty(TxMinDefensaMagica.Text) && String.IsNullOrEmpty(TxMaxDefensaMagica.Text));
+            return !(String.IsNullOrEmpty(TxNombre.Text) || String.IsNullOrEmpty(TxPrecio.Text) || String.IsNullOrEmpty(TxSalud.Text) || String.IsNullOrEmpty(TxMana.Text) ||
+                String.IsNullOrEmpty(TxMana.Text) || String.IsNullOrEmpty(TxHambre.Text) || String.IsNullOrEmpty(TxSed.Text) && String.IsNullOrEmpty(TxFuerza.Text) &&
+                String.IsNullOrEmpty(TxAgilidad.Text) || String.IsNullOrEmpty(TxPeso.Text) || String.IsNullOrEmpty(TxMinDanio.Text) || String.IsNullOrEmpty(TxMaxDanio.Text) ||
+                String.IsNullOrEmpty(TxMinDanioMagico.Text) || String.IsNullOrEmpty(TxMaxDanioMagico.Text) || String.IsNullOrEmpty(TxMinDefensaCasco.Text) || String.IsNullOrEmpty(TxMaxDefensaCasco.Text) &&
+                String.IsNullOrEmpty(TxMinDefensaCuerpo.Text) || String.IsNullOrEmpty(TxMaxDefensaCuerpo.Text) || String.IsNullOrEmpty(TxMinDefensaMagica.Text) || String.IsNullOrEmpty(TxMaxDefensaMagica.Text));
         }
 
         #endregion
@@ -146,8 +216,8 @@ namespace CapaPresentacion
             d.Add((short)Enumeraciones.TipoObjeto.Flecha, "Flecha");
             d.Add((short)Enumeraciones.TipoObjeto.Arbol, "Arbol");
             d.Add((short)Enumeraciones.TipoObjeto.Mina, "Mina");
-            d.Add((short)Enumeraciones.TipoObjeto.HachaLeñador, "HachaLeñador");
-            d.Add((short)Enumeraciones.TipoObjeto.PiqueteMinero, "PiqueteMinero");
+            d.Add((short)Enumeraciones.TipoObjeto.HachaLeñador, "Hacha Leñador");
+            d.Add((short)Enumeraciones.TipoObjeto.PiqueteMinero, "Piquete Minero");
             d.Add((short)Enumeraciones.TipoObjeto.Otros, "Otros");
             d.Add((short)Enumeraciones.TipoObjeto.Proyectil, "Proyectil");
             d.Add((short)Enumeraciones.TipoObjeto.Madera, "Madera");

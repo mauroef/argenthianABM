@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using CapaDatos.Objeto;
-using System.Data;
+﻿using CapaDatos.Objeto;
 using FastMember;
+using System;
+using System.Collections.Generic;
+using System.Data;
 
 namespace CapaNegocio.Modelos
 {
@@ -19,9 +18,9 @@ namespace CapaNegocio.Modelos
         public int IdImagen { get; set; }
         public int IdModelo3d { get; set; }
         public short IdHechizo { get; set; }
+        public EquipoModel Equipo { get; set; }
+        public EstadisticasModel Estadisticas { get; set; }
         public List<short> ClasesNoPermitidas { get; set; }
-        EstadisticasModel Estadisticas { get; set; }
-        EquipoModel Equipo { get; set; }
 
         #endregion
 
@@ -38,10 +37,17 @@ namespace CapaNegocio.Modelos
 
             using (var reader = ObjectReader.Create(objetoRepository.ObtenerTodos(), "id", "nombre", "precio", "tipo", "idSonido", "idImagen", "idModelo3d"))
             {
-                tablaObjeto.Load(reader);                
+                tablaObjeto.Load(reader);
             }
 
             return tablaObjeto;
+        }
+
+        public ObjetoModel ObtenerPorId(short id)
+        {
+            Objeto o = objetoRepository.ObtenerPorId(id);
+
+            return MapearObjetoModel(o);
         }
 
         public bool GuadarDatos(ObjetoModel objetoModel)
@@ -57,7 +63,7 @@ namespace CapaNegocio.Modelos
             catch (Exception)
             {
                 return false;
-            }            
+            }
         }
 
         public ObjetoModel MapearObjetoModel(string nombre, string precio, string idTipo, string idSonido, string idImagen,
@@ -90,11 +96,38 @@ namespace CapaNegocio.Modelos
             return om;
         }
 
-        public Objeto MapearObjeto(ObjetoModel om)
+        public ObjetoModel MapearObjetoModel(Objeto o)
+        {
+            ObjetoModel om = new ObjetoModel();
+
+            try
+            {
+                om.Id = o.id;
+                om.Nombre = o.nombre;
+                om.Precio = Convert.ToDecimal(o.precio);
+                om.Tipo = Convert.ToInt16(o.tipo);
+                om.IdSonido = Convert.ToInt16(o.idSonido);
+                om.IdImagen = Convert.ToInt32(o.idImagen);
+                om.IdModelo3d = Convert.ToInt32(o.idModelo3d);
+                om.IdHechizo = Convert.ToInt16(o.idHechizo);
+                om.ClasesNoPermitidas = o.clasesNoPermitidas;
+                om.Estadisticas = EstadisticasModel.Mapear(Convert.ToInt16(o.estadisticas.salud), Convert.ToInt16(o.estadisticas.mana), Convert.ToInt16(o.estadisticas.hambre), Convert.ToInt16(o.estadisticas.sed), Convert.ToInt16(o.estadisticas.fuerza), Convert.ToInt16(o.estadisticas.agilidad), Convert.ToInt16(o.estadisticas.peso));
+                om.Equipo = EquipoModel.Mapear(Convert.ToInt16(o.equipo.minDaño), Convert.ToInt16(o.equipo.maxDaño), Convert.ToInt16(o.equipo.minDañoMagico), Convert.ToInt16(o.equipo.maxDañoMagico), Convert.ToInt16(o.equipo.minDefCasco), Convert.ToInt16(o.equipo.maxDefCasco), Convert.ToInt16(o.equipo.minDefCuerpo), Convert.ToInt16(o.equipo.maxDefCuerpo), Convert.ToInt16(o.equipo.minDefMagica), Convert.ToInt16(o.equipo.maxDefMagica));
+
+            }
+            catch (Exception)
+            {
+                return new ObjetoModel();
+            }
+
+            return om;
+        }
+
+        public Objeto MapearObjeto(ObjetoModel om, short id = 0)
         {
             Objeto o = new Objeto();
 
-            o.id = ObtenerId();
+            o.id = id == 0 ? GenerarId() : id;
             o.nombre = om.Nombre;
             o.precio = om.Precio;
             o.tipo = om.Tipo;
@@ -124,7 +157,7 @@ namespace CapaNegocio.Modelos
             return o;
         }
 
-        private short ObtenerId()
+        private short GenerarId()
         {
             return (short)(objetoRepository.ObtenerUltimoId() + 1);
         }
@@ -142,6 +175,22 @@ namespace CapaNegocio.Modelos
                 objetoRepository.Eliminar(id);
 
                 return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool EditarPorId(short id, ObjetoModel objetoModel)
+        {
+            try
+            {
+                Objeto objeto = MapearObjeto(objetoModel, id);
+
+                objetoRepository.Editar(id, objeto);
+
+                return true;                
             }
             catch (Exception)
             {

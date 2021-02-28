@@ -23,9 +23,9 @@ namespace CapaDatos.Objeto
         public int idModelo3d { get; set; }
         [JsonProperty("idHechizo")]
         public short idHechizo { get; set; }
-        public List<short> clasesNoPermitidas { get; set; }
         public Equipo equipo { get; set; }
         public Estadisticas estadisticas { get; set; }
+        public List<short> clasesNoPermitidas { get; set; }
 
         public Objeto()
         {
