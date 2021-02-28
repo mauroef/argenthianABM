@@ -31,6 +31,7 @@ namespace CapaPresentacion
         {
             this.DataGridViewObjeto = new System.Windows.Forms.DataGridView();
             this.BtNuevo = new System.Windows.Forms.Button();
+            this.BtRecargarGrilla = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewObjeto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,9 +55,20 @@ namespace CapaPresentacion
             this.BtNuevo.UseVisualStyleBackColor = true;
             this.BtNuevo.Click += new System.EventHandler(this.BtNuevo_Click);
             // 
+            // BtRecargarGrilla
+            // 
+            this.BtRecargarGrilla.Location = new System.Drawing.Point(825, 421);
+            this.BtRecargarGrilla.Name = "BtRecargarGrilla";
+            this.BtRecargarGrilla.Size = new System.Drawing.Size(75, 23);
+            this.BtRecargarGrilla.TabIndex = 3;
+            this.BtRecargarGrilla.Text = "Recargar";
+            this.BtRecargarGrilla.UseVisualStyleBackColor = true;
+            this.BtRecargarGrilla.Click += new System.EventHandler(this.BtRecargarGrilla_Click);
+            // 
             // Grilla
             // 
             this.ClientSize = new System.Drawing.Size(993, 456);
+            this.Controls.Add(this.BtRecargarGrilla);
             this.Controls.Add(this.BtNuevo);
             this.Controls.Add(this.DataGridViewObjeto);
             this.Name = "Grilla";
@@ -69,6 +81,7 @@ namespace CapaPresentacion
 
         private System.Windows.Forms.DataGridView DataGridViewObjeto;
         private System.Windows.Forms.Button BtNuevo;
+        private System.Windows.Forms.Button BtRecargarGrilla;
     }
 }
 

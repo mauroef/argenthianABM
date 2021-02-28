@@ -51,14 +51,18 @@ namespace CapaDatos.Objeto
             EscribirDatos(JsonConvert.SerializeObject(lista, Formatting.Indented));
         }
 
-        public void Editar(short id, Objeto objeto)
+        public void Editar(short id, Objeto objetoEditado)
         {
             List<Objeto> lista = JsonConvert.DeserializeObject<List<Objeto>>(LeerDatos());
+            Objeto objeto = lista.First(o => o.id == id);
+            int indice = lista.IndexOf(objeto);
 
-            List<Objeto> listaEditada = lista.Select(o => o = objeto).Where(o => o.id == id).ToList();
+            if (indice >= 0)
+            {
+                lista[indice] = objetoEditado;
+            }
 
-
-            EscribirDatos(JsonConvert.SerializeObject(listaEditada, Formatting.Indented));
+            EscribirDatos(JsonConvert.SerializeObject(lista, Formatting.Indented));
         }
 
         public void Eliminar(short id)

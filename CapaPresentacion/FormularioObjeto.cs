@@ -168,10 +168,10 @@ namespace CapaPresentacion
 
         private void InicializarCombos()
         {
-            var dict = new Dictionary<int, string>();
-            dict.Add(100, "Uno");
-            dict.Add(200, "Dos");
-            dict.Add(300, "Tres");
+            var dict = new Dictionary<short, string>();
+            dict.Add(1, "Uno");
+            dict.Add(2, "Dos");
+            dict.Add(3, "Tres");
 
             CbTipo.DataSource = new BindingSource(ObtenerDatosTipoObjeto(), null);
             CbTipo.DisplayMember = "Value";

@@ -84,12 +84,17 @@ namespace CapaPresentacion
                 {
                     FormularioObjeto formulario = new FormularioObjeto(objeto.ObtenerPorId(id));
 
-                    formulario.Show();
-                    
+                    formulario.Show();                    
                 }
             }
         }
 
+
         #endregion
+
+        private void BtRecargarGrilla_Click(object sender, EventArgs e)
+        {
+            DataGridViewObjeto.Refresh();
+        }
     }
 }
