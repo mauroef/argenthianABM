@@ -38,7 +38,7 @@ namespace CapaDatos.Objeto
             }
             catch (Exception)
             {
-                return 1;
+                return 0;
             }
         }
 

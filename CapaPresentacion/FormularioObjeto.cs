@@ -16,11 +16,13 @@ namespace CapaPresentacion
 
         ObjetoModel objetoModel = new ObjetoModel();
 
+        private readonly Grilla grilla;
+
         #endregion
 
         #region Inicializacion
 
-        public FormularioObjeto(ObjetoModel o = null)
+        public FormularioObjeto(ObjetoModel o, Grilla grilla)
         {
             InitializeComponent();
             InicializarCombos();
@@ -31,6 +33,8 @@ namespace CapaPresentacion
                 objetoModel.Id = o.Id;
                 MapearFormulario(o);
             }
+
+            this.grilla = grilla;
         }
 
         private void MapearFormulario(ObjetoModel o)
@@ -93,7 +97,7 @@ namespace CapaPresentacion
 
         private void BtCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            CerrarFormulario();
         }
 
         private void BtGuardarEquipo_Click(object sender, EventArgs e)
@@ -102,25 +106,29 @@ namespace CapaPresentacion
             {
                 short id = objetoModel.Id;
                 objetoModel = objetoModel.MapearObjetoModel(TxNombre.Text, TxPrecio.Text, CbTipo.SelectedValue.ToString(), CbSonido.SelectedValue.ToString(), CbImagen.SelectedValue.ToString(),
-                                                            CbModelo3d.SelectedValue.ToString(), CbHechizo.SelectedValue.ToString(), ObtenerValoresListBox(), TxSalud.Text, TxMana.Text, 
+                                                            CbModelo3d.SelectedValue.ToString(), CbHechizo.SelectedValue.ToString(), ObtenerValoresListBox(), TxSalud.Text, TxMana.Text,
                                                             TxHambre.Text, TxSed.Text, TxFuerza.Text, TxAgilidad.Text, TxPeso.Text,
-                                                            TxMinDanio.Text, TxMaxDanio.Text, TxMinDanioMagico.Text, TxMaxDanioMagico.Text, TxMinDefensaCasco.Text, 
+                                                            TxMinDanio.Text, TxMaxDanio.Text, TxMinDanioMagico.Text, TxMaxDanioMagico.Text, TxMinDefensaCasco.Text,
                                                             TxMaxDefensaCasco.Text, TxMinDefensaCuerpo.Text, TxMaxDefensaCuerpo.Text, TxMinDefensaMagica.Text, TxMaxDefensaMagica.Text);
-                
+
                 if (objetoModel.ValidarDatos(objetoModel))
                 {
                     if (id == 0 && objetoModel.GuadarDatos(objetoModel))
                     {
                         MessageBox.Show("El objeto fue agregado correctamente.", "Éxito", MessageBoxButtons.OK);
+                        RefrescarGrillaPrincipal();
+                        LimpiarFormulario();
                     }
                     else if (objetoModel.EditarPorId(id, objetoModel))
                     {
                         MessageBox.Show("El objeto fue editado correctamente.", "Éxito", MessageBoxButtons.OK);
+                        RefrescarGrillaPrincipal();
+                        CerrarFormulario();
                     }
                     else
                     {
                         MessageBox.Show("Hubo un problema al procesar la operación.", "Error", MessageBoxButtons.OK);
-                    }                    
+                    }
                 }
                 else
                 {
@@ -147,6 +155,21 @@ namespace CapaPresentacion
             {
                 e.Handled = true;
             }
+        }
+
+        private void CerrarFormulario()
+        {
+            this.Close();
+        }
+
+        private void RefrescarGrillaPrincipal()
+        {
+            grilla.RefrescarGrilla();
+        }
+
+        private void LimpiarFormulario()
+        { 
+            // TODO: vaciar todos los campos del form
         }
 
         #endregion
@@ -312,6 +335,6 @@ namespace CapaPresentacion
             return lista;
         }
 
-        #endregion
+        #endregion        
     }
 }

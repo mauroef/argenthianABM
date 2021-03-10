@@ -24,8 +24,12 @@ namespace CapaPresentacion
         private void MostrarObjetos()
         {
             DataGridViewObjeto.DataSource = objeto.ObtenerDatos();
-            DataGridViewObjeto.Columns.Add(SetearBoton("btEliminar", "Eliminar"));
-            DataGridViewObjeto.Columns.Add(SetearBoton("btEditar", "Editar"));
+
+            if (DataGridViewObjeto.Columns.Count == 7)
+            {
+                DataGridViewObjeto.Columns.Add(SetearBoton("btEliminar", "Eliminar"));
+                DataGridViewObjeto.Columns.Add(SetearBoton("btEditar", "Editar"));
+            }
         }
 
         private DataGridViewButtonColumn SetearBoton(string nombre, string texto)
@@ -46,7 +50,7 @@ namespace CapaPresentacion
 
         private void BtNuevo_Click(object sender, EventArgs e)
         {
-            FormularioObjeto formulario = new FormularioObjeto();
+            FormularioObjeto formulario = new FormularioObjeto(null, this);
 
             formulario.Show();
         }
@@ -62,12 +66,14 @@ namespace CapaPresentacion
             {
                 short id = (short)DataGridViewObjeto.Rows[e.RowIndex].Cells["id"].Value;
                 string nombre = (string)DataGridViewObjeto.Rows[e.RowIndex].Cells["nombre"].Value;
+                DialogResult preguntaResultado = MessageBox.Show("Está a punto de eliminar el objeto " + nombre + ". ¿Está seguro?", "Atención", MessageBoxButtons.YesNo);
 
-                if (id > 0)
+                if (preguntaResultado == DialogResult.Yes && id > 0)
                 {
                     if (objeto.EliminarPorId(id))
                     {
                         MessageBox.Show("El objeto " + nombre + " fue eliminado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RefrescarGrilla();
                     }
                     else
                     {
@@ -82,18 +88,18 @@ namespace CapaPresentacion
 
                 if (id > 0)
                 {
-                    FormularioObjeto formulario = new FormularioObjeto(objeto.ObtenerPorId(id));
+                    FormularioObjeto formulario = new FormularioObjeto(objeto.ObtenerPorId(id), this);
 
                     formulario.Show();                    
                 }
             }
         }
 
-
         #endregion
 
-        private void BtRecargarGrilla_Click(object sender, EventArgs e)
+        public void RefrescarGrilla()
         {
+            MostrarObjetos();
             DataGridViewObjeto.Refresh();
         }
     }
