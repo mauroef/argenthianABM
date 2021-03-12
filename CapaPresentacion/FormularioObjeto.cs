@@ -168,8 +168,32 @@ namespace CapaPresentacion
         }
 
         private void LimpiarFormulario()
-        { 
-            // TODO: vaciar todos los campos del form
+        {
+            TxNombre.Text = String.Empty;
+            TxPrecio.Text = String.Empty;
+            CbTipo.SelectedItem = null;
+            CbSonido.SelectedItem = null;
+            CbImagen.SelectedItem = null;
+            CbModelo3d.SelectedItem = null;
+            CbHechizo.SelectedItem = null;
+            TxSalud.Text = String.Empty;
+            TxMana.Text = String.Empty;
+            TxHambre.Text = String.Empty;
+            TxSed.Text = String.Empty;
+            TxFuerza.Text = String.Empty;
+            TxAgilidad.Text = String.Empty;
+            TxPeso.Text = String.Empty;
+            TxMinDanio.Text = String.Empty;
+            TxMaxDanio.Text = String.Empty;
+            TxMinDanioMagico.Text = String.Empty;
+            TxMaxDanioMagico.Text = String.Empty;
+            TxMinDefensaCasco.Text = String.Empty;
+            TxMaxDefensaCasco.Text = String.Empty;
+            TxMinDefensaCuerpo.Text = String.Empty;
+            TxMaxDefensaMagica.Text = String.Empty;
+            TxMinDefensaMagica.Text = String.Empty;
+
+            LbxClasesNo.SelectedItem = null;
         }
 
         #endregion
@@ -182,7 +206,8 @@ namespace CapaPresentacion
                 String.IsNullOrEmpty(TxMana.Text) || String.IsNullOrEmpty(TxHambre.Text) || String.IsNullOrEmpty(TxSed.Text) && String.IsNullOrEmpty(TxFuerza.Text) &&
                 String.IsNullOrEmpty(TxAgilidad.Text) || String.IsNullOrEmpty(TxPeso.Text) || String.IsNullOrEmpty(TxMinDanio.Text) || String.IsNullOrEmpty(TxMaxDanio.Text) ||
                 String.IsNullOrEmpty(TxMinDanioMagico.Text) || String.IsNullOrEmpty(TxMaxDanioMagico.Text) || String.IsNullOrEmpty(TxMinDefensaCasco.Text) || String.IsNullOrEmpty(TxMaxDefensaCasco.Text) &&
-                String.IsNullOrEmpty(TxMinDefensaCuerpo.Text) || String.IsNullOrEmpty(TxMaxDefensaCuerpo.Text) || String.IsNullOrEmpty(TxMinDefensaMagica.Text) || String.IsNullOrEmpty(TxMaxDefensaMagica.Text));
+                String.IsNullOrEmpty(TxMinDefensaCuerpo.Text) || String.IsNullOrEmpty(TxMaxDefensaCuerpo.Text) || String.IsNullOrEmpty(TxMinDefensaMagica.Text) || String.IsNullOrEmpty(TxMaxDefensaMagica.Text)) &&
+                (CbTipo.SelectedValue != null && CbSonido.SelectedValue != null && CbImagen != null && CbModelo3d != null && CbHechizo.SelectedValue != null);
         }
 
         #endregion
