@@ -16,13 +16,13 @@ namespace CapaPresentacion
 
         ObjetoModel objetoModel = new ObjetoModel();
 
-        private readonly Grilla grilla;
+        private readonly GrillaObjeto grilla;
 
         #endregion
 
         #region Inicializacion
 
-        public FormularioObjeto(ObjetoModel o, Grilla grilla)
+        public FormularioObjeto(ObjetoModel o, GrillaObjeto grilla)
         {
             InitializeComponent();
             InicializarCombos();
@@ -35,6 +35,7 @@ namespace CapaPresentacion
             }
 
             this.grilla = grilla;
+            this.grilla.Enabled = false;
         }
 
         private void MapearFormulario(ObjetoModel o)
@@ -160,11 +161,13 @@ namespace CapaPresentacion
         private void CerrarFormulario()
         {
             this.Close();
+            this.grilla.Enabled = true;
+            this.grilla.Focus();
         }
 
         private void RefrescarGrillaPrincipal()
         {
-            grilla.RefrescarGrilla();
+            this.grilla.RefrescarGrilla();
         }
 
         private void LimpiarFormulario()
@@ -190,8 +193,9 @@ namespace CapaPresentacion
             TxMinDefensaCasco.Text = String.Empty;
             TxMaxDefensaCasco.Text = String.Empty;
             TxMinDefensaCuerpo.Text = String.Empty;
-            TxMaxDefensaMagica.Text = String.Empty;
+            TxMaxDefensaCuerpo.Text = String.Empty;
             TxMinDefensaMagica.Text = String.Empty;
+            TxMaxDefensaMagica.Text = String.Empty;
 
             LbxClasesNo.SelectedItem = null;
         }

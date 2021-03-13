@@ -1,7 +1,7 @@
 ﻿
 namespace CapaPresentacion
 {
-    partial class Grilla
+    partial class GrillaObjeto
     {
         /// <summary>
         ///  Required designer variable.

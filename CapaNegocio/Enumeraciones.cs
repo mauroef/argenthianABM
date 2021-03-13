@@ -54,7 +54,6 @@ namespace CapaNegocio
             Cabeza = 6
         }
 
-
         public enum Color
         {
             Negro = 1,
@@ -265,6 +264,19 @@ namespace CapaNegocio
         public enum TipoTrigger
         {
             VerTecho = 1
+        }
+
+        public enum TipoJson
+        {
+             Carpinteria,
+             Ciudades,
+             Clases,
+             Configuracion,
+             Habilidades,
+             Hechizos,
+             Npcs,
+             Objetos,
+             Razas
         }
     }
 }

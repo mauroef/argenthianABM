@@ -5,17 +5,17 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class Grilla : Form
+    public partial class GrillaObjeto : Form
     {
         #region Propiedades
-
+        
         ObjetoModel objeto = new ObjetoModel();
 
         #endregion
 
         #region Inicializacion
 
-        public Grilla()
+        public GrillaObjeto()
         {
             InitializeComponent();
             MostrarObjetos();
@@ -95,12 +95,12 @@ namespace CapaPresentacion
             }
         }
 
-        #endregion
-
         public void RefrescarGrilla()
         {
             MostrarObjetos();
             DataGridViewObjeto.Refresh();
         }
+
+        #endregion
     }
 }
