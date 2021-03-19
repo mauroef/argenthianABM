@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class GrillaObjeto : Form
+    public partial class GrillaObjeto : GrillaBase
     {
         #region Propiedades
         
@@ -18,37 +18,27 @@ namespace CapaPresentacion
         public GrillaObjeto()
         {
             InitializeComponent();
-            MostrarObjetos();
+            Cargar();            
         }
 
-        private void MostrarObjetos()
+        public override void Refrescar()
+        {
+            Cargar();
+            DataGridViewObjeto.Refresh();
+        }
+
+        public override void Cargar()
         {
             DataGridViewObjeto.DataSource = objeto.ObtenerDatos();
 
-            if (DataGridViewObjeto.Columns.Count == 7)
-            {
-                DataGridViewObjeto.Columns.Add(SetearBoton("btEliminar", "Eliminar"));
-                DataGridViewObjeto.Columns.Add(SetearBoton("btEditar", "Editar"));
-            }
-        }
-
-        private DataGridViewButtonColumn SetearBoton(string nombre, string texto)
-        {
-            DataGridViewButtonColumn boton = new DataGridViewButtonColumn();
-
-            boton.Name = nombre;
-            boton.HeaderText = texto;
-            boton.Text = texto;
-            boton.UseColumnTextForButtonValue = true;
-
-            return boton;
+            SetearAcciones(DataGridViewObjeto, 7);
         }
 
         #endregion
 
         #region Eventos
 
-        private void BtNuevo_Click(object sender, EventArgs e)
+        public override void BtNuevo_Click(object sender, EventArgs e)
         {
             FormularioObjeto formulario = new FormularioObjeto(null, this);
 
@@ -73,7 +63,7 @@ namespace CapaPresentacion
                     if (objeto.EliminarPorId(id))
                     {
                         MessageBox.Show("El objeto " + nombre + " fue eliminado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        RefrescarGrilla();
+                        Refrescar();
                     }
                     else
                     {
@@ -93,12 +83,6 @@ namespace CapaPresentacion
                     formulario.Show();                    
                 }
             }
-        }
-
-        public void RefrescarGrilla()
-        {
-            MostrarObjetos();
-            DataGridViewObjeto.Refresh();
         }
 
         #endregion

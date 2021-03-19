@@ -159,15 +159,15 @@ namespace CapaPresentacion
         }
 
         private void CerrarFormulario()
-        {
-            this.Close();
-            this.grilla.Enabled = true;
+        {            
+            this.grilla.Deshabilitar(true);
             this.grilla.Focus();
+            this.Close();
         }
 
         private void RefrescarGrillaPrincipal()
         {
-            this.grilla.RefrescarGrilla();
+            this.grilla.Refrescar();
         }
 
         private void LimpiarFormulario()

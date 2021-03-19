@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class selectorBotonera : Form
+    public partial class SelectorBotonera : Form
     {
         #region Propiedades
 
@@ -20,7 +20,7 @@ namespace CapaPresentacion
 
         #region Inicializacion
 
-        public selectorBotonera()
+        public SelectorBotonera()
         {
             InitializeComponent();
             InicializarBotones();
@@ -120,8 +120,7 @@ namespace CapaPresentacion
             }
             catch (Exception)
             {
-
-                MessageBox.Show("Se ha cerrado la ventana. Cierre la aplicación y vuelva a ejecutar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Se ha cerrado mal la ventana. Cierre la aplicación y vuelva a ejecutar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

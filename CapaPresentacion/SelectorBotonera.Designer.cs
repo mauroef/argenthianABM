@@ -1,7 +1,7 @@
 ﻿
 namespace CapaPresentacion
 {
-    partial class selectorBotonera
+    partial class SelectorBotonera
     {
         /// <summary>
         /// Required designer variable.

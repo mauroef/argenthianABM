@@ -30,9 +30,16 @@ namespace CapaPresentacion
         private void InitializeComponent()
         {
             this.DataGridViewObjeto = new System.Windows.Forms.DataGridView();
-            this.BtNuevo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewObjeto)).BeginInit();
             this.SuspendLayout();
+            // 
+            // BtCerrar
+            // 
+            this.BtCerrar.Location = new System.Drawing.Point(12, 421);
+            // 
+            // BtNuevo
+            // 
+            this.BtNuevo.Location = new System.Drawing.Point(906, 421);
             // 
             // DataGridViewObjeto
             // 
@@ -44,22 +51,16 @@ namespace CapaPresentacion
             this.DataGridViewObjeto.TabIndex = 0;
             this.DataGridViewObjeto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewObjeto_CellClick);
             // 
-            // BtNuevo
+            // GrillaObjeto
             // 
-            this.BtNuevo.Location = new System.Drawing.Point(906, 421);
-            this.BtNuevo.Name = "BtNuevo";
-            this.BtNuevo.Size = new System.Drawing.Size(75, 23);
-            this.BtNuevo.TabIndex = 2;
-            this.BtNuevo.Text = "Nuevo";
-            this.BtNuevo.UseVisualStyleBackColor = true;
-            this.BtNuevo.Click += new System.EventHandler(this.BtNuevo_Click);
-            // 
-            // Grilla
-            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.ClientSize = new System.Drawing.Size(993, 456);
-            this.Controls.Add(this.BtNuevo);
             this.Controls.Add(this.DataGridViewObjeto);
-            this.Name = "Grilla";
+            this.Name = "GrillaObjeto";
+            this.Text = "Objetos";
+            this.Controls.SetChildIndex(this.DataGridViewObjeto, 0);
+            this.Controls.SetChildIndex(this.BtNuevo, 0);
+            this.Controls.SetChildIndex(this.BtCerrar, 0);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewObjeto)).EndInit();
             this.ResumeLayout(false);
 
@@ -68,7 +69,6 @@ namespace CapaPresentacion
         #endregion
 
         private System.Windows.Forms.DataGridView DataGridViewObjeto;
-        private System.Windows.Forms.Button BtNuevo;
     }
 }
 
