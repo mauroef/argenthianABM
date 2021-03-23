@@ -72,8 +72,6 @@ namespace CapaPresentacion
             this.TxAgilidad = new System.Windows.Forms.TextBox();
             this.LbPeso = new System.Windows.Forms.Label();
             this.TxPeso = new System.Windows.Forms.TextBox();
-            this.BtGuardarEquipo = new System.Windows.Forms.Button();
-            this.BtCancelar = new System.Windows.Forms.Button();
             this.GbBase = new System.Windows.Forms.GroupBox();
             this.GbEstadisticas = new System.Windows.Forms.GroupBox();
             this.GbEquipo = new System.Windows.Forms.GroupBox();
@@ -84,6 +82,15 @@ namespace CapaPresentacion
             this.GbEquipo.SuspendLayout();
             this.GbClasesNo.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // BtCancelar
+            // 
+            this.BtCancelar.Location = new System.Drawing.Point(225, 411);
+            this.BtCancelar.Click += new System.EventHandler(this.BtCancelar_Click);
+            // 
+            // BtGuardar
+            // 
+            this.BtGuardar.Location = new System.Drawing.Point(325, 411);            
             // 
             // LbNombre
             // 
@@ -430,26 +437,6 @@ namespace CapaPresentacion
             this.TxPeso.Size = new System.Drawing.Size(100, 23);
             this.TxPeso.TabIndex = 41;
             // 
-            // BtGuardarEquipo
-            // 
-            this.BtGuardarEquipo.Location = new System.Drawing.Point(325, 411);
-            this.BtGuardarEquipo.Name = "BtGuardarEquipo";
-            this.BtGuardarEquipo.Size = new System.Drawing.Size(75, 23);
-            this.BtGuardarEquipo.TabIndex = 44;
-            this.BtGuardarEquipo.Text = "Guardar";
-            this.BtGuardarEquipo.UseVisualStyleBackColor = true;
-            this.BtGuardarEquipo.Click += new System.EventHandler(this.BtGuardarEquipo_Click);
-            // 
-            // BtCancelar
-            // 
-            this.BtCancelar.Location = new System.Drawing.Point(225, 411);
-            this.BtCancelar.Name = "BtCancelar";
-            this.BtCancelar.Size = new System.Drawing.Size(75, 23);
-            this.BtCancelar.TabIndex = 45;
-            this.BtCancelar.Text = "Cancelar";
-            this.BtCancelar.UseVisualStyleBackColor = true;
-            this.BtCancelar.Click += new System.EventHandler(this.BtCancelar_Click);
-            // 
             // GbBase
             // 
             this.GbBase.Controls.Add(this.LbNombre);
@@ -549,10 +536,14 @@ namespace CapaPresentacion
             this.Controls.Add(this.GbClasesNo);
             this.Controls.Add(this.GbEquipo);
             this.Controls.Add(this.GbEstadisticas);
-            this.Controls.Add(this.BtCancelar);
-            this.Controls.Add(this.BtGuardarEquipo);
             this.Name = "FormularioObjeto";
             this.Text = "Nuevo Objeto";
+            this.Controls.SetChildIndex(this.BtGuardar, 0);
+            this.Controls.SetChildIndex(this.BtCancelar, 0);
+            this.Controls.SetChildIndex(this.GbEstadisticas, 0);
+            this.Controls.SetChildIndex(this.GbEquipo, 0);
+            this.Controls.SetChildIndex(this.GbClasesNo, 0);
+            this.Controls.SetChildIndex(this.GbBase, 0);
             this.GbBase.ResumeLayout(false);
             this.GbBase.PerformLayout();
             this.GbEstadisticas.ResumeLayout(false);
@@ -609,8 +600,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.TextBox TxAgilidad;
         private System.Windows.Forms.Label LbPeso;
         private System.Windows.Forms.TextBox TxPeso;
-        private System.Windows.Forms.Button BtGuardarEquipo;
-        private System.Windows.Forms.Button BtCancelar;
         private System.Windows.Forms.GroupBox GbBase;
         private System.Windows.Forms.GroupBox GbEstadisticas;
         private System.Windows.Forms.GroupBox GbEquipo;

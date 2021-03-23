@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class FormularioObjeto : Form
+    public partial class FormularioObjeto : FormularioBase
     {
         #region Propiedades
 
@@ -96,12 +96,12 @@ namespace CapaPresentacion
 
         #region Eventos
 
-        private void BtCancelar_Click(object sender, EventArgs e)
+        public override void BtCancelar_Click(object sender, EventArgs e)
         {
-            CerrarFormulario();
+            this.CerrarFormulario();
         }
 
-        private void BtGuardarEquipo_Click(object sender, EventArgs e)
+        public override void BtGuardar_Click(object sender, EventArgs e)
         {
             if (ValidarDatosFormulario())
             {
@@ -162,7 +162,7 @@ namespace CapaPresentacion
         {            
             this.grilla.Deshabilitar(true);
             this.grilla.Focus();
-            this.Close();
+            this.Hide();
         }
 
         private void RefrescarGrillaPrincipal()
@@ -364,6 +364,6 @@ namespace CapaPresentacion
             return lista;
         }
 
-        #endregion        
+        #endregion
     }
 }
