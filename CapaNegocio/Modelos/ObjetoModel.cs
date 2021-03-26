@@ -43,6 +43,13 @@ namespace CapaNegocio.Modelos
             return tablaObjeto;
         }
 
+        public static IEnumerable<Objeto> ObtenerListado()
+        {
+            ObjetoRepository or = new ObjetoRepository();
+
+            return or.ObtenerTodos();
+        }
+
         public ObjetoModel ObtenerPorId(short id)
         {
             Objeto o = objetoRepository.ObtenerPorId(id);

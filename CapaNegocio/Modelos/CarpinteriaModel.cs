@@ -29,7 +29,7 @@ namespace CapaNegocio.Modelos
         {
             DataTable tablaCarpinteria = new DataTable("carpinteria");
 
-            using (var reader = ObjectReader.Create(carpinteriaRepository.ObtenerTodos(), "id", "nombre", "precio", "tipo", "idSonido", "idImagen", "idModelo3d"))
+            using (var reader = ObjectReader.Create(carpinteriaRepository.ObtenerTodos(), "id", "idObjeto", "skills", "madera"))
             {
                 tablaCarpinteria.Load(reader);
             }
@@ -60,13 +60,12 @@ namespace CapaNegocio.Modelos
             }
         }
 
-        public CarpinteriaModel MapearCarpinteriaModel(string id, string idObjeto, string skills, string madera)
+        public CarpinteriaModel MapearCarpinteriaModel(string idObjeto, string skills, string madera)
         {
             CarpinteriaModel cm = new CarpinteriaModel();
 
             try
             {
-                cm.Id = Convert.ToInt16(id);
                 cm.IdObjeto = Convert.ToInt16(idObjeto);
                 cm.Skills = Convert.ToInt16(skills);
                 cm.Madera = Convert.ToInt16(madera);
@@ -115,10 +114,9 @@ namespace CapaNegocio.Modelos
             return (short)(carpinteriaRepository.ObtenerUltimoId() + 1);
         }
 
-        public bool ValidarDatos(CarpinteriaModel carpinteria)
+        public bool ValidarDatos(CarpinteriaModel cm)
         {
-            // TODO: validar usando logica de negocio
-            return true;
+            return cm.IdObjeto > 0 && cm.Skills > -1 && cm.Madera > -1;
         }
 
         public bool EliminarPorId(short id)
