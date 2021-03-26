@@ -39,7 +39,7 @@ namespace CapaPresentacion
             // 
             // BtNuevo
             // 
-            this.BtNuevo.Location = new System.Drawing.Point(906, 421);
+            this.BtNuevo.Location = new System.Drawing.Point(885, 421);
             // 
             // DataGridViewObjeto
             // 
@@ -47,14 +47,14 @@ namespace CapaPresentacion
             this.DataGridViewObjeto.Location = new System.Drawing.Point(12, 12);
             this.DataGridViewObjeto.Name = "DataGridViewObjeto";
             this.DataGridViewObjeto.RowTemplate.Height = 25;
-            this.DataGridViewObjeto.Size = new System.Drawing.Size(969, 403);
+            this.DataGridViewObjeto.Size = new System.Drawing.Size(948, 403);
             this.DataGridViewObjeto.TabIndex = 0;
             this.DataGridViewObjeto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewObjeto_CellClick);
             // 
             // GrillaObjeto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.ClientSize = new System.Drawing.Size(993, 456);
+            this.ClientSize = new System.Drawing.Size(972, 456);
             this.Controls.Add(this.DataGridViewObjeto);
             this.Name = "GrillaObjeto";
             this.Text = "Objetos";

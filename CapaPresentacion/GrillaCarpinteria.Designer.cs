@@ -39,7 +39,7 @@ namespace CapaPresentacion
             // 
             // BtNuevo
             // 
-            this.BtNuevo.Location = new System.Drawing.Point(473, 415);
+            this.BtNuevo.Location = new System.Drawing.Point(583, 415);
             // 
             // DataGridViewCarpinteria
             // 
@@ -47,7 +47,7 @@ namespace CapaPresentacion
             this.DataGridViewCarpinteria.Location = new System.Drawing.Point(12, 12);
             this.DataGridViewCarpinteria.Name = "DataGridViewCarpinteria";
             this.DataGridViewCarpinteria.RowTemplate.Height = 25;
-            this.DataGridViewCarpinteria.Size = new System.Drawing.Size(536, 397);
+            this.DataGridViewCarpinteria.Size = new System.Drawing.Size(646, 397);
             this.DataGridViewCarpinteria.TabIndex = 6;
             this.DataGridViewCarpinteria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewCarpinteria_CellClick);
             // 
@@ -55,7 +55,7 @@ namespace CapaPresentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 450);
+            this.ClientSize = new System.Drawing.Size(670, 450);
             this.Controls.Add(this.DataGridViewCarpinteria);
             this.Name = "GrillaCarpinteria";
             this.Text = "Carpinteria";
