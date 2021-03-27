@@ -55,8 +55,8 @@ namespace CapaDatos.Carpinteria
         public void Editar(short id, Carpinteria carpinteriaEditado)
         {
             List<Carpinteria> lista = JsonConvert.DeserializeObject<List<Carpinteria>>(LeerDatos());
-            Carpinteria objeto = lista.First(o => o.id == id);
-            int indice = lista.IndexOf(objeto);
+            Carpinteria carpinteria = lista.First(o => o.id == id);
+            int indice = lista.IndexOf(carpinteria);
 
             if (indice >= 0)
             {
