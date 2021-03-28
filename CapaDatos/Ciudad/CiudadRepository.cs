@@ -23,9 +23,9 @@ namespace CapaDatos.Ciudad
 
         public Ciudad ObtenerPorId(short id)
         {
-            Ciudad carpinteria = JsonConvert.DeserializeObject<List<Ciudad>>(LeerDatos()).Where(c => c.id == id).FirstOrDefault();
+            Ciudad ciudad = JsonConvert.DeserializeObject<List<Ciudad>>(LeerDatos()).Where(c => c.id == id).FirstOrDefault();
 
-            return carpinteria;
+            return ciudad;
         }
 
         public short ObtenerUltimoId()
@@ -51,7 +51,7 @@ namespace CapaDatos.Ciudad
             EscribirDatos(JsonConvert.SerializeObject(lista, Formatting.Indented));
         }
 
-        public void Editar(short id, Ciudad carpinteriaEditado)
+        public void Editar(short id, Ciudad ciudadEditado)
         {
             List<Ciudad> lista = JsonConvert.DeserializeObject<List<Ciudad>>(LeerDatos());
             Ciudad ciudad = lista.First(o => o.id == id);
@@ -59,7 +59,7 @@ namespace CapaDatos.Ciudad
 
             if (indice >= 0)
             {
-                lista[indice] = carpinteriaEditado;
+                lista[indice] = ciudadEditado;
             }
 
             EscribirDatos(JsonConvert.SerializeObject(lista, Formatting.Indented));
