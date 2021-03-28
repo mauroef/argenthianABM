@@ -15,6 +15,7 @@ namespace CapaPresentacion
         #region Propiedades
 
         private GrillaCarpinteria grillaCarpinteria = new GrillaCarpinteria();
+        private GrillaCiudad grillaCiudad = new GrillaCiudad();
         private GrillaObjeto grillaObjeto = new GrillaObjeto();       
 
         #endregion
@@ -92,7 +93,7 @@ namespace CapaPresentacion
                         this.grillaCarpinteria.Show();
                         break;
                     case (short)Enumeraciones.TipoJson.Ciudades:
-
+                        this.grillaCiudad.Show();
                         break;
                     case (short)Enumeraciones.TipoJson.Clases:
 

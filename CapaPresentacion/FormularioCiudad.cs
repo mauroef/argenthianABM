@@ -11,26 +11,25 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class FormularioCarpinteria : FormularioBase
+    public partial class FormularioCiudad : FormularioBase
     {
         #region Propiedades
 
-        CarpinteriaModel carpinteriaModel = new CarpinteriaModel();
+        CiudadModel ciudadModel = new CiudadModel();
 
-        private readonly GrillaCarpinteria grilla;
+        private readonly GrillaCiudad grilla;
 
         #endregion
 
         #region Inicializacion
 
-        public FormularioCarpinteria(CarpinteriaModel c, GrillaCarpinteria grilla)
+        public FormularioCiudad(CiudadModel c, GrillaCiudad grilla)
         {
             InitializeComponent();
-            InicializarCombos();
 
             if (c != null)
             {
-                carpinteriaModel.Id = c.Id;
+                ciudadModel.Id = c.Id;
                 MapearFormulario(c);
             }
 
@@ -38,10 +37,9 @@ namespace CapaPresentacion
             this.grilla.Enabled = false;
         }
 
-        private void MapearFormulario(CarpinteriaModel c)
+        private void MapearFormulario(CiudadModel c)
         {
-            TxSkills.Text = c.Skills.ToString();
-            TxMadera.Text = c.Madera.ToString();
+            TxNombre.Text = c.Nombre.ToString();
         }
 
         #endregion
@@ -57,20 +55,20 @@ namespace CapaPresentacion
         {
             if (ValidarDatosFormulario())
             {
-                short id = carpinteriaModel.Id;
-                carpinteriaModel = carpinteriaModel.MapearCarpinteriaModel(TxSkills.Text, TxMadera.Text, CbObjeto.SelectedValue.ToString());
+                short id = ciudadModel.Id;
+                ciudadModel = ciudadModel.MapearCiudadModel(TxNombre.Text);
 
-                if (carpinteriaModel.ValidarDatos(carpinteriaModel))
+                if (ciudadModel.ValidarDatos(ciudadModel))
                 {
-                    if (id == 0 && carpinteriaModel.GuadarDatos(carpinteriaModel))
+                    if (id == 0 && ciudadModel.GuadarDatos(ciudadModel))
                     {
-                        MessageBox.Show("El objeto fue agregado correctamente.", "Éxito", MessageBoxButtons.OK);
+                        MessageBox.Show("La ciudad fue agregada correctamente.", "Éxito", MessageBoxButtons.OK);
                         RefrescarGrillaPrincipal();
                         LimpiarFormulario();
                     }
-                    else if (carpinteriaModel.EditarPorId(id, carpinteriaModel))
+                    else if (ciudadModel.EditarPorId(id, ciudadModel))
                     {
-                        MessageBox.Show("El objeto fue editado correctamente.", "Éxito", MessageBoxButtons.OK);
+                        MessageBox.Show("La ciudad fue editada correctamente.", "Éxito", MessageBoxButtons.OK);
                         RefrescarGrillaPrincipal();
                         CerrarFormulario();
                     }
@@ -104,10 +102,8 @@ namespace CapaPresentacion
 
         private void LimpiarFormulario()
         {
-            TxSkills.Text = String.Empty;
-            TxMadera.Text = String.Empty;
-            CbObjeto.SelectedItem = null;
-        } 
+            TxNombre.Text = string.Empty;
+        }
 
         #endregion
 
@@ -115,31 +111,7 @@ namespace CapaPresentacion
 
         private bool ValidarDatosFormulario()
         {
-            return !(String.IsNullOrEmpty(TxSkills.Text) && String.IsNullOrEmpty(TxMadera.Text)) &&
-                    (CbObjeto.SelectedValue != null);
-        }
-
-        #endregion
-
-        #region Combos
-
-        private void InicializarCombos()
-        {
-            CbObjeto.DataSource = new BindingSource(ObtenerDatosObjeto(), null);
-            CbObjeto.DisplayMember = "Value";
-            CbObjeto.ValueMember = "Key";
-        }
-
-        private Dictionary<short, string> ObtenerDatosObjeto()
-        {
-            Dictionary<short, string> o = new Dictionary<short, string>();
-
-            foreach (var item in ObjetoModel.ObtenerListado())
-            {
-                o.Add(item.id, item.nombre);
-            }
-
-            return o;
+            return !String.IsNullOrEmpty(TxNombre.Text);
         }
 
         #endregion

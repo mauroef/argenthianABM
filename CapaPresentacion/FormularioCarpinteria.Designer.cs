@@ -29,7 +29,7 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.LbObjeto = new System.Windows.Forms.Label();
             this.LbSkills = new System.Windows.Forms.Label();
             this.LbMadera = new System.Windows.Forms.Label();
             this.CbObjeto = new System.Windows.Forms.ComboBox();
@@ -48,14 +48,14 @@ namespace CapaPresentacion
             // 
             this.BtGuardar.Location = new System.Drawing.Point(120, 147);
             // 
-            // label1
+            // LbObjeto
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 15);
-            this.label1.TabIndex = 48;
-            this.label1.Text = "Objeto";
+            this.LbObjeto.AutoSize = true;
+            this.LbObjeto.Location = new System.Drawing.Point(6, 36);
+            this.LbObjeto.Name = "LbObjeto";
+            this.LbObjeto.Size = new System.Drawing.Size(43, 15);
+            this.LbObjeto.TabIndex = 48;
+            this.LbObjeto.Text = "Objeto";
             // 
             // LbSkills
             // 
@@ -99,7 +99,7 @@ namespace CapaPresentacion
             // 
             // GbCarpinteria
             // 
-            this.GbCarpinteria.Controls.Add(this.label1);
+            this.GbCarpinteria.Controls.Add(this.LbObjeto);
             this.GbCarpinteria.Controls.Add(this.TxMadera);
             this.GbCarpinteria.Controls.Add(this.CbObjeto);
             this.GbCarpinteria.Controls.Add(this.LbSkills);
@@ -131,13 +131,12 @@ namespace CapaPresentacion
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LbObjeto;
         private System.Windows.Forms.Label LbSkills;
         private System.Windows.Forms.Label LbMadera;
         private System.Windows.Forms.ComboBox CbObjeto;
         private System.Windows.Forms.TextBox TxSkills;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.GroupBox GbCarpinteria;
         private System.Windows.Forms.TextBox TxMadera;
+        private System.Windows.Forms.GroupBox GbCarpinteria;
     }
 }
