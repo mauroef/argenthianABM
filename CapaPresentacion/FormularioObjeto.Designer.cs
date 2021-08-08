@@ -90,7 +90,7 @@ namespace CapaPresentacion
             // 
             // BtGuardar
             // 
-            this.BtGuardar.Location = new System.Drawing.Point(325, 411);            
+            this.BtGuardar.Location = new System.Drawing.Point(325, 411);
             // 
             // LbNombre
             // 
@@ -537,7 +537,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.GbEquipo);
             this.Controls.Add(this.GbEstadisticas);
             this.Name = "FormularioObjeto";
-            this.Text = "Nuevo Objeto";
+            this.Text = "Nuevo / Editar";
             this.Controls.SetChildIndex(this.BtGuardar, 0);
             this.Controls.SetChildIndex(this.BtCancelar, 0);
             this.Controls.SetChildIndex(this.GbEstadisticas, 0);

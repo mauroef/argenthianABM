@@ -17,6 +17,7 @@ namespace CapaPresentacion
         private GrillaCarpinteria grillaCarpinteria = new GrillaCarpinteria();
         private GrillaCiudad grillaCiudad = new GrillaCiudad();
         private GrillaHabilidad grillaHabilidad = new GrillaHabilidad();
+        private GrillaHechizo grillaHechizo = new GrillaHechizo();
         private GrillaObjeto grillaObjeto = new GrillaObjeto();       
 
         #endregion
@@ -106,7 +107,7 @@ namespace CapaPresentacion
                         this.grillaHabilidad.Show();
                         break;
                     case (short)Enumeraciones.TipoJson.Hechizos:
-
+                        this.grillaHechizo.Show();
                         break;
                     case (short)Enumeraciones.TipoJson.Npcs:
 
