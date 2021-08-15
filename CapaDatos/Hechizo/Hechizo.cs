@@ -16,6 +16,9 @@ namespace CapaDatos.Hechizo
         [JsonProperty("nombre")]
         public string nombre { get; set; }
 
+        [JsonProperty("puntos")]
+        public int puntos { get; set; }
+
         [JsonProperty("idImagen")]
         public short idImagen { get; set; }
 

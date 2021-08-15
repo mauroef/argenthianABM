@@ -11,6 +11,10 @@ namespace CapaDatos.Objeto
         public short id { get; set; }
         [JsonProperty("nombre")]
         public string nombre { get; set; }
+
+        [JsonProperty("descripcion")]
+        public string descripcion { get; set; }
+
         [JsonProperty("precio")]
         public decimal precio { get; set; }
         [JsonProperty("tipo")]
@@ -21,11 +25,19 @@ namespace CapaDatos.Objeto
         public int idImagen { get; set; }
         [JsonProperty("idModelo3d")]
         public int idModelo3d { get; set; }
+        [JsonProperty("idSkin")]
+        public int idSkin { get; set; }
+
         [JsonProperty("idHechizo")]
         public short idHechizo { get; set; }
+
+        [JsonProperty("noCae")]
+        public bool noCae { get; set; }
         public Equipo equipo { get; set; }
         public Estadisticas estadisticas { get; set; }
         public List<short> clasesNoPermitidas { get; set; }
+
+        public short tipoArma { get; set; }
 
         public Objeto()
         {

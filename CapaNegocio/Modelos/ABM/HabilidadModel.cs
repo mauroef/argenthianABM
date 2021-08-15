@@ -81,7 +81,7 @@ namespace CapaNegocio.Modelos
             try
             {
                 hm.Id = h.id;
-                hm.Nombre = h.nombre;
+                //hm.Nombre = h.nombre;
             }
             catch (Exception)
             {
@@ -96,7 +96,7 @@ namespace CapaNegocio.Modelos
             Habilidad h = new Habilidad();
 
             h.id = id == 0 ? GenerarId() : id;
-            h.nombre = hm.Nombre;
+            //h.nombre = hm.Nombre;
 
             return h;
         }

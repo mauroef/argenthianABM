@@ -15,5 +15,7 @@ namespace CapaDatos.Carpinteria
         public short skills { get; set; }
         [JsonProperty("madera")]
         public short madera { get; set; }
+
+        public Objeto.Objeto objeto { get; set; }
     }
 }

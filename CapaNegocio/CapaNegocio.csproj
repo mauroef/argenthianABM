@@ -1,7 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <WarningLevel>2</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,5 +33,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /E /Y &quot;$(ProjectDir)\bin\netstandard2.0\&quot; &quot;C:\Users\Pablo\Documents\Cliente Argenthian3D\Assets\Desarrollo\Framework\Argenthian\&quot;&#xD;&#xA;&#xD;&#xA;xcopy /E /Y &quot;$(ProjectDir)\bin\netstandard2.0\&quot; &quot;C:\Users\Pablo\Documents\ServidorArgentum3D\Assets\Desarrollo\Framework\Argenthian\&quot;" />
+  </Target>
 
 </Project>

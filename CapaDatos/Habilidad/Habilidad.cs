@@ -10,6 +10,6 @@ namespace CapaDatos.Habilidad
         [JsonProperty("id")]
         public short id { get; set; }
         [JsonProperty("nombre")]
-        public string nombre { get; set; }
+        public List<string> nombre { get; set; }
     }
 }
