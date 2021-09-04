@@ -77,6 +77,13 @@ namespace CapaPresentacion
             this.GbEquipo = new System.Windows.Forms.GroupBox();
             this.LbxClasesNo = new System.Windows.Forms.ListBox();
             this.GbClasesNo = new System.Windows.Forms.GroupBox();
+            this.LbDescripcion = new System.Windows.Forms.Label();
+            this.TxDescripcion = new System.Windows.Forms.TextBox();
+            this.CbSkin = new System.Windows.Forms.ComboBox();
+            this.LbSkin = new System.Windows.Forms.Label();
+            this.CxNoCae = new System.Windows.Forms.CheckBox();
+            this.CbArma = new System.Windows.Forms.ComboBox();
+            this.LbArma = new System.Windows.Forms.Label();
             this.GbBase.SuspendLayout();
             this.GbEstadisticas.SuspendLayout();
             this.GbEquipo.SuspendLayout();
@@ -85,12 +92,12 @@ namespace CapaPresentacion
             // 
             // BtCancelar
             // 
-            this.BtCancelar.Location = new System.Drawing.Point(225, 411);
+            this.BtCancelar.Location = new System.Drawing.Point(225, 528);
             this.BtCancelar.Click += new System.EventHandler(this.BtCancelar_Click);
             // 
             // BtGuardar
             // 
-            this.BtGuardar.Location = new System.Drawing.Point(325, 411);
+            this.BtGuardar.Location = new System.Drawing.Point(331, 528);
             // 
             // LbNombre
             // 
@@ -103,14 +110,14 @@ namespace CapaPresentacion
             // 
             // TxNombre
             // 
-            this.TxNombre.Location = new System.Drawing.Point(63, 25);
+            this.TxNombre.Location = new System.Drawing.Point(84, 25);
             this.TxNombre.Name = "TxNombre";
             this.TxNombre.Size = new System.Drawing.Size(100, 23);
             this.TxNombre.TabIndex = 1;
             // 
             // TxPrecio
             // 
-            this.TxPrecio.Location = new System.Drawing.Point(63, 54);
+            this.TxPrecio.Location = new System.Drawing.Point(84, 83);
             this.TxPrecio.Name = "TxPrecio";
             this.TxPrecio.Size = new System.Drawing.Size(100, 23);
             this.TxPrecio.TabIndex = 3;
@@ -119,7 +126,7 @@ namespace CapaPresentacion
             // LbPrecio
             // 
             this.LbPrecio.AutoSize = true;
-            this.LbPrecio.Location = new System.Drawing.Point(6, 58);
+            this.LbPrecio.Location = new System.Drawing.Point(6, 87);
             this.LbPrecio.Name = "LbPrecio";
             this.LbPrecio.Size = new System.Drawing.Size(40, 15);
             this.LbPrecio.TabIndex = 2;
@@ -128,7 +135,7 @@ namespace CapaPresentacion
             // LbTipo
             // 
             this.LbTipo.AutoSize = true;
-            this.LbTipo.Location = new System.Drawing.Point(6, 91);
+            this.LbTipo.Location = new System.Drawing.Point(6, 120);
             this.LbTipo.Name = "LbTipo";
             this.LbTipo.Size = new System.Drawing.Size(30, 15);
             this.LbTipo.TabIndex = 4;
@@ -137,7 +144,7 @@ namespace CapaPresentacion
             // CbTipo
             // 
             this.CbTipo.FormattingEnabled = true;
-            this.CbTipo.Location = new System.Drawing.Point(63, 87);
+            this.CbTipo.Location = new System.Drawing.Point(63, 116);
             this.CbTipo.Name = "CbTipo";
             this.CbTipo.Size = new System.Drawing.Size(121, 23);
             this.CbTipo.TabIndex = 5;
@@ -145,7 +152,7 @@ namespace CapaPresentacion
             // CbSonido
             // 
             this.CbSonido.FormattingEnabled = true;
-            this.CbSonido.Location = new System.Drawing.Point(63, 116);
+            this.CbSonido.Location = new System.Drawing.Point(63, 145);
             this.CbSonido.Name = "CbSonido";
             this.CbSonido.Size = new System.Drawing.Size(121, 23);
             this.CbSonido.TabIndex = 7;
@@ -153,7 +160,7 @@ namespace CapaPresentacion
             // LbSonido
             // 
             this.LbSonido.AutoSize = true;
-            this.LbSonido.Location = new System.Drawing.Point(6, 120);
+            this.LbSonido.Location = new System.Drawing.Point(6, 149);
             this.LbSonido.Name = "LbSonido";
             this.LbSonido.Size = new System.Drawing.Size(44, 15);
             this.LbSonido.TabIndex = 6;
@@ -162,7 +169,7 @@ namespace CapaPresentacion
             // CbImagen
             // 
             this.CbImagen.FormattingEnabled = true;
-            this.CbImagen.Location = new System.Drawing.Point(63, 144);
+            this.CbImagen.Location = new System.Drawing.Point(63, 173);
             this.CbImagen.Name = "CbImagen";
             this.CbImagen.Size = new System.Drawing.Size(121, 23);
             this.CbImagen.TabIndex = 9;
@@ -170,7 +177,7 @@ namespace CapaPresentacion
             // LbImagen
             // 
             this.LbImagen.AutoSize = true;
-            this.LbImagen.Location = new System.Drawing.Point(6, 148);
+            this.LbImagen.Location = new System.Drawing.Point(6, 177);
             this.LbImagen.Name = "LbImagen";
             this.LbImagen.Size = new System.Drawing.Size(47, 15);
             this.LbImagen.TabIndex = 8;
@@ -179,7 +186,7 @@ namespace CapaPresentacion
             // CbModelo3d
             // 
             this.CbModelo3d.FormattingEnabled = true;
-            this.CbModelo3d.Location = new System.Drawing.Point(63, 174);
+            this.CbModelo3d.Location = new System.Drawing.Point(63, 203);
             this.CbModelo3d.Name = "CbModelo3d";
             this.CbModelo3d.Size = new System.Drawing.Size(121, 23);
             this.CbModelo3d.TabIndex = 11;
@@ -187,7 +194,7 @@ namespace CapaPresentacion
             // LbModelo
             // 
             this.LbModelo.AutoSize = true;
-            this.LbModelo.Location = new System.Drawing.Point(6, 178);
+            this.LbModelo.Location = new System.Drawing.Point(6, 207);
             this.LbModelo.Name = "LbModelo";
             this.LbModelo.Size = new System.Drawing.Size(48, 15);
             this.LbModelo.TabIndex = 10;
@@ -196,7 +203,7 @@ namespace CapaPresentacion
             // CbHechizo
             // 
             this.CbHechizo.FormattingEnabled = true;
-            this.CbHechizo.Location = new System.Drawing.Point(63, 203);
+            this.CbHechizo.Location = new System.Drawing.Point(63, 261);
             this.CbHechizo.Name = "CbHechizo";
             this.CbHechizo.Size = new System.Drawing.Size(121, 23);
             this.CbHechizo.TabIndex = 13;
@@ -204,7 +211,7 @@ namespace CapaPresentacion
             // LbHechizo
             // 
             this.LbHechizo.AutoSize = true;
-            this.LbHechizo.Location = new System.Drawing.Point(6, 207);
+            this.LbHechizo.Location = new System.Drawing.Point(4, 265);
             this.LbHechizo.Name = "LbHechizo";
             this.LbHechizo.Size = new System.Drawing.Size(50, 15);
             this.LbHechizo.TabIndex = 12;
@@ -439,6 +446,13 @@ namespace CapaPresentacion
             // 
             // GbBase
             // 
+            this.GbBase.Controls.Add(this.CbArma);
+            this.GbBase.Controls.Add(this.LbArma);
+            this.GbBase.Controls.Add(this.CxNoCae);
+            this.GbBase.Controls.Add(this.CbSkin);
+            this.GbBase.Controls.Add(this.LbSkin);
+            this.GbBase.Controls.Add(this.LbDescripcion);
+            this.GbBase.Controls.Add(this.TxDescripcion);
             this.GbBase.Controls.Add(this.LbNombre);
             this.GbBase.Controls.Add(this.CbHechizo);
             this.GbBase.Controls.Add(this.CbSonido);
@@ -455,7 +469,7 @@ namespace CapaPresentacion
             this.GbBase.Controls.Add(this.LbModelo);
             this.GbBase.Location = new System.Drawing.Point(12, 12);
             this.GbBase.Name = "GbBase";
-            this.GbBase.Size = new System.Drawing.Size(207, 240);
+            this.GbBase.Size = new System.Drawing.Size(207, 357);
             this.GbBase.TabIndex = 46;
             this.GbBase.TabStop = false;
             this.GbBase.Text = "Base";
@@ -476,7 +490,7 @@ namespace CapaPresentacion
             this.GbEstadisticas.Controls.Add(this.LbMana);
             this.GbEstadisticas.Controls.Add(this.TxHambre);
             this.GbEstadisticas.Controls.Add(this.TxAgilidad);
-            this.GbEstadisticas.Location = new System.Drawing.Point(225, 12);
+            this.GbEstadisticas.Location = new System.Drawing.Point(231, 12);
             this.GbEstadisticas.Name = "GbEstadisticas";
             this.GbEstadisticas.Size = new System.Drawing.Size(175, 240);
             this.GbEstadisticas.TabIndex = 47;
@@ -500,7 +514,7 @@ namespace CapaPresentacion
             this.GbEquipo.Controls.Add(this.TxMaxDanioMagico);
             this.GbEquipo.Controls.Add(this.LbDanioMagico);
             this.GbEquipo.Controls.Add(this.TxMaxDefensaCuerpo);
-            this.GbEquipo.Location = new System.Drawing.Point(12, 258);
+            this.GbEquipo.Location = new System.Drawing.Point(12, 375);
             this.GbEquipo.Name = "GbEquipo";
             this.GbEquipo.Size = new System.Drawing.Size(207, 176);
             this.GbEquipo.TabIndex = 48;
@@ -514,24 +528,84 @@ namespace CapaPresentacion
             this.LbxClasesNo.Location = new System.Drawing.Point(6, 23);
             this.LbxClasesNo.Name = "LbxClasesNo";
             this.LbxClasesNo.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.LbxClasesNo.Size = new System.Drawing.Size(156, 109);
+            this.LbxClasesNo.Size = new System.Drawing.Size(156, 184);
             this.LbxClasesNo.TabIndex = 49;
             // 
             // GbClasesNo
             // 
             this.GbClasesNo.Controls.Add(this.LbxClasesNo);
-            this.GbClasesNo.Location = new System.Drawing.Point(225, 258);
+            this.GbClasesNo.Location = new System.Drawing.Point(231, 268);
             this.GbClasesNo.Name = "GbClasesNo";
-            this.GbClasesNo.Size = new System.Drawing.Size(175, 147);
+            this.GbClasesNo.Size = new System.Drawing.Size(175, 223);
             this.GbClasesNo.TabIndex = 50;
             this.GbClasesNo.TabStop = false;
             this.GbClasesNo.Text = "Clases No Permitidas";
+            // 
+            // LbDescripcion
+            // 
+            this.LbDescripcion.AutoSize = true;
+            this.LbDescripcion.Location = new System.Drawing.Point(5, 58);
+            this.LbDescripcion.Name = "LbDescripcion";
+            this.LbDescripcion.Size = new System.Drawing.Size(69, 15);
+            this.LbDescripcion.TabIndex = 14;
+            this.LbDescripcion.Text = "Descripción";
+            // 
+            // TxDescripcion
+            // 
+            this.TxDescripcion.Location = new System.Drawing.Point(84, 54);
+            this.TxDescripcion.Name = "TxDescripcion";
+            this.TxDescripcion.Size = new System.Drawing.Size(100, 23);
+            this.TxDescripcion.TabIndex = 15;
+            // 
+            // CbSkin
+            // 
+            this.CbSkin.FormattingEnabled = true;
+            this.CbSkin.Location = new System.Drawing.Point(63, 232);
+            this.CbSkin.Name = "CbSkin";
+            this.CbSkin.Size = new System.Drawing.Size(121, 23);
+            this.CbSkin.TabIndex = 17;
+            // 
+            // LbSkin
+            // 
+            this.LbSkin.AutoSize = true;
+            this.LbSkin.Location = new System.Drawing.Point(6, 236);
+            this.LbSkin.Name = "LbSkin";
+            this.LbSkin.Size = new System.Drawing.Size(29, 15);
+            this.LbSkin.TabIndex = 16;
+            this.LbSkin.Text = "Skin";
+            // 
+            // CxNoCae
+            // 
+            this.CxNoCae.AutoSize = true;
+            this.CxNoCae.Location = new System.Drawing.Point(121, 322);
+            this.CxNoCae.Name = "CxNoCae";
+            this.CxNoCae.Size = new System.Drawing.Size(63, 19);
+            this.CxNoCae.TabIndex = 18;
+            this.CxNoCae.Text = "No cae";
+            this.CxNoCae.UseVisualStyleBackColor = true;
+            // 
+            // CbArma
+            // 
+            this.CbArma.FormattingEnabled = true;
+            this.CbArma.Location = new System.Drawing.Point(63, 290);
+            this.CbArma.Name = "CbArma";
+            this.CbArma.Size = new System.Drawing.Size(121, 23);
+            this.CbArma.TabIndex = 20;
+            // 
+            // LbArma
+            // 
+            this.LbArma.AutoSize = true;
+            this.LbArma.Location = new System.Drawing.Point(4, 294);
+            this.LbArma.Name = "LbArma";
+            this.LbArma.Size = new System.Drawing.Size(36, 15);
+            this.LbArma.TabIndex = 19;
+            this.LbArma.Text = "Arma";
             // 
             // FormularioObjeto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(415, 444);
+            this.ClientSize = new System.Drawing.Size(421, 564);
             this.Controls.Add(this.GbBase);
             this.Controls.Add(this.GbClasesNo);
             this.Controls.Add(this.GbEquipo);
@@ -605,5 +679,12 @@ namespace CapaPresentacion
         private System.Windows.Forms.GroupBox GbEquipo;
         private System.Windows.Forms.ListBox LbxClasesNo;
         private System.Windows.Forms.GroupBox GbClasesNo;
+        private System.Windows.Forms.Label LbDescripcion;
+        private System.Windows.Forms.TextBox TxDescripcion;
+        private System.Windows.Forms.ComboBox CbSkin;
+        private System.Windows.Forms.Label LbSkin;
+        private System.Windows.Forms.CheckBox CxNoCae;
+        private System.Windows.Forms.ComboBox CbArma;
+        private System.Windows.Forms.Label LbArma;
     }
 }

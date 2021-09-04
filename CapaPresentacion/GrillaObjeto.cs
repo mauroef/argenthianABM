@@ -31,7 +31,7 @@ namespace CapaPresentacion
         {
             DataGridViewObjeto.DataSource = objeto.ObtenerDatos();
 
-            SetearAcciones(DataGridViewObjeto, 7);
+            SetearAcciones(DataGridViewObjeto, 11);
         }
 
         #endregion

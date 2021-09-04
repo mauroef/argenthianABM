@@ -49,12 +49,15 @@ namespace CapaPresentacion
         private void MapearFormularioBase(ObjetoModel o)
         {
             TxNombre.Text = o.Nombre;
+            TxDescripcion.Text = o.Descripcion;
             TxPrecio.Text = o.Precio.ToString();
             CbTipo.SelectedValue = o.Tipo;
             CbSonido.SelectedValue = (short)o.IdSonido;
             CbImagen.SelectedValue = (short)o.IdImagen;
             CbModelo3d.SelectedValue = (short)o.IdModelo3d;
             CbHechizo.SelectedValue = o.IdHechizo;
+            CbSkin.SelectedValue = (short)o.IdSkin;
+            CxNoCae.Checked = o.NoCae;
         }
 
         private void MapearFormularioEquipo(EquipoModel e)
@@ -106,8 +109,8 @@ namespace CapaPresentacion
             if (ValidarDatosFormulario())
             {
                 short id = objetoModel.Id;
-                objetoModel = objetoModel.MapearObjetoModel(TxNombre.Text, TxPrecio.Text, CbTipo.SelectedValue.ToString(), CbSonido.SelectedValue.ToString(), CbImagen.SelectedValue.ToString(),
-                                                            CbModelo3d.SelectedValue.ToString(), CbHechizo.SelectedValue.ToString(), ObtenerValoresListBox(), TxSalud.Text, TxMana.Text,
+                objetoModel = objetoModel.MapearObjetoModel(TxNombre.Text, TxDescripcion.Text, TxPrecio.Text, CbTipo.SelectedValue.ToString(), CbSonido.SelectedValue.ToString(), CbImagen.SelectedValue.ToString(),
+                                                            CbModelo3d.SelectedValue.ToString(), CbHechizo.SelectedValue.ToString(), CbSkin.SelectedValue.ToString(), CxNoCae.Checked, CbArma.SelectedValue.ToString(), ObtenerValoresListBox(), TxSalud.Text, TxMana.Text,
                                                             TxHambre.Text, TxSed.Text, TxFuerza.Text, TxAgilidad.Text, TxPeso.Text,
                                                             TxMinDanio.Text, TxMaxDanio.Text, TxMinDanioMagico.Text, TxMaxDanioMagico.Text, TxMinDefensaCasco.Text,
                                                             TxMaxDefensaCasco.Text, TxMinDefensaCuerpo.Text, TxMaxDefensaCuerpo.Text, TxMinDefensaMagica.Text, TxMaxDefensaMagica.Text);
@@ -174,11 +177,14 @@ namespace CapaPresentacion
         {
             TxNombre.Text = String.Empty;
             TxPrecio.Text = String.Empty;
+            TxDescripcion.Text = String.Empty;
             CbTipo.SelectedItem = null;
             CbSonido.SelectedItem = null;
             CbImagen.SelectedItem = null;
             CbModelo3d.SelectedItem = null;
             CbHechizo.SelectedItem = null;
+            CbSkin.SelectedItem = null;
+            CbArma.SelectedItem = null;
             TxSalud.Text = String.Empty;
             TxMana.Text = String.Empty;
             TxHambre.Text = String.Empty;
@@ -242,9 +248,17 @@ namespace CapaPresentacion
             CbModelo3d.DisplayMember = "Value";
             CbModelo3d.ValueMember = "Key";
 
+            CbSkin.DataSource = new BindingSource(ObtenerDatosSkin(), null);
+            CbSkin.DisplayMember = "Value";
+            CbSkin.ValueMember = "Key";
+
             CbHechizo.DataSource = new BindingSource(ObtenerDatosHechizo(), null);
             CbHechizo.DisplayMember = "Value";
             CbHechizo.ValueMember = "Key";
+
+            CbArma.DataSource = new BindingSource(ObtenerDatosTipoArma(), null);
+            CbArma.DisplayMember = "Value";
+            CbArma.ValueMember = "Key";
         }
 
         private Dictionary<short, string> ObtenerDatosTipoObjeto()
@@ -312,6 +326,26 @@ namespace CapaPresentacion
             return d;
         }
 
+        private Dictionary<short, string> ObtenerDatosSkin()
+        {
+            Dictionary<short, string> s = new Dictionary<short, string>();
+
+            s.Add((short)Enumeraciones.TipoSkin.Cabello, "Cabello");
+            s.Add((short)Enumeraciones.TipoSkin.Barba, "Barba");
+            s.Add((short)Enumeraciones.TipoSkin.Bigote, "Bigote");
+            s.Add((short)Enumeraciones.TipoSkin.Cuerpo, "Cuerpo");
+            s.Add((short)Enumeraciones.TipoSkin.Manos, "Manos");
+            s.Add((short)Enumeraciones.TipoSkin.Piernas, "Piernas Veneno");
+            s.Add((short)Enumeraciones.TipoSkin.Cabeza, "Cabeza");
+            s.Add((short)Enumeraciones.TipoSkin.Orejas, "Orejas");
+            s.Add((short)Enumeraciones.TipoSkin.Casco, "Casco");
+            s.Add((short)Enumeraciones.TipoSkin.Vestimenta, "Vestimenta");
+            s.Add((short)Enumeraciones.TipoSkin.Guantes, "Guantes");
+            s.Add((short)Enumeraciones.TipoSkin.Zapatos, "Zapatos");
+
+            return s;
+        }
+
         private Dictionary<short, string> ObtenerDatosHechizo()
         {
             Dictionary<short, string> d = new Dictionary<short, string>();
@@ -325,6 +359,21 @@ namespace CapaPresentacion
             d.Add((short)Enumeraciones.TipoHechizo.Otro, "Otro");
 
             return d;
+        }
+
+        private Dictionary<short, string> ObtenerDatosTipoArma()
+        {
+            Dictionary<short, string> a = new Dictionary<short, string>();
+
+            a.Add((short)Enumeraciones.TipoArma.Ninguna, "Ninguna");
+            a.Add((short)Enumeraciones.TipoArma.Espada, "Espada");
+            a.Add((short)Enumeraciones.TipoArma.Daga, "Daga");
+            a.Add((short)Enumeraciones.TipoArma.Proyectil, "Proyectil");
+            a.Add((short)Enumeraciones.TipoArma.Antorcha, "Antorcha");
+            a.Add((short)Enumeraciones.TipoArma.HachaLeñador, "Hacha Leñador");
+            a.Add((short)Enumeraciones.TipoArma.Serrucho, "Serrucho");
+
+            return a;
         }
 
         #endregion
